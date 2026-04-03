@@ -166,3 +166,15 @@ In a real incident: a 7-step build sequence was defined with explicit dependency
 The fix was obvious in hindsight: test the store layer query against Postgres directly before wrapping it in an MCP tool handler. But the single-pass execution skipped that verification point even though the plan explicitly included it.
 
 The pattern: the AI can produce a correct build plan with the right granularity and verification points, then collapse it into a single generation pass because generating code is what it defaults to. The plan exists but doesn't interrupt the generation. This is observation 1 (everything at once) applied to a build sequence rather than a single file — the scope is larger but the failure mode is identical.
+
+---
+
+## 17. Structured output suppresses step-backs
+
+When the AI produces output in a structured format — tables, numbered sections, labelled decisions, explicit tradeoff evaluations — the result reads as thorough even when the content within that structure hasn't been checked. The format signals completeness. The step-back checkpoint doesn't fire because there's no feeling of incompleteness to trigger it.
+
+In a real incident: a design transition gate for a management UI produced a structured analysis — decision table, triage of structural vs. refinement, self-challenge per decision, first vertical slice, risk flags. The output looked comprehensive. The step-back checkpoint did not fire. When the user manually triggered a second pass, it found three significant problems: a missed structural alternative (HTMX + Go templates vs. any JS framework), a deployment model that contradicted the project's single-binary pattern (embed.FS), and a proposed service that duplicated an existing service's store layer. All three were catchable by asking "what did I not consider?" — the basic step-back question. But the structured format had already created the sense that everything was considered.
+
+The self-challenge checkpoint has a related failure mode in this context: it generates *nearby* alternatives (another JS framework) rather than *structural* alternatives (do we need a JS framework at all?). The structure encourages evaluation within the framing rather than questioning the framing itself. A table comparing React vs. Svelte feels like a thorough evaluation, but the column headers are already wrong — the real alternative isn't in the table.
+
+This is distinct from observation 7 (procedure narrows attention). Observation 7 is about checklists constraining what the AI looks at during work. This is about structured output constraining what the AI checks after work — the format substitutes for the verification.
