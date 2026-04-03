@@ -4,7 +4,7 @@ A Bildhauer starts with a rough block of stone and a vision. Not a blueprint —
 
 But the sculptor doesn't start on the marble. They build a Bozzetto — a small clay model. Clay is cheap to reshape, easy to rework. The sculptor iterates on the Bozzetto: adjusting proportions, trying different poses, checking the gesture from every angle. Sometimes they make several, each more refined than the last. The refinement happens here, on the model, where mistakes cost nothing. Only when the model is right do they commit to the stone.
 
-The refinement is continuous — each pass slightly finer than the last, always covering the whole piece. At any moment, the whole model looks like a rougher version of the final result. The sculptor just keeps refining, and the work gradually reveals more detail as it progresses.
+The refinement is continuous — each pass slightly finer than the last, always covering the whole piece. First you see basic masses: where the head is relative to the torso, where the limbs are, the overall stance. Then the arm separates from the torso, the face gets planes for forehead and cheek and chin. Then the hand gets individual fingers, the eyelid gets a curve. At any moment, the whole model looks like a rougher version of the final result. The sculptor just keeps refining, and the work gradually reveals more detail as it progresses.
 
 Nothing is detailed in isolation. Every part is shaped in relation to every other part. The elbow matches the shoulder. The nose fits the face. At every level of resolution, the whole model is coherent — a complete figure, just at the resolution reached so far. It never looks like a detailed face on a featureless block.
 
