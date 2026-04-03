@@ -20,11 +20,13 @@ This is fundamentally different from how a sculptor steps back. The sculptor's s
 
 **Structural forcing (implemented)** — The step-back checkpoint in PROCEDURE.md now requires a verification block artifact (three unchecked assumptions, the most structurally different alternative not evaluated, what the output looks like if the framing is wrong). A missing verification block is visible; a skipped step-back is not. This converts the behavioral instruction into a structural requirement.
 
-### Still to explore
+### Future considerations
 
-**Adversarial pass** — After producing design or implementation output, a separate agent (subagent) reviews it with the explicit mandate to find problems. The review is structural — it happens because the process requires it, not because the AI judges it should. This mirrors real creative practice: sculptors have other sculptors critique their bozzetti. Connects to STRATEGY.md open question: "Should the loop be interactive with the user, automated (e.g., via subagents reviewing each other's work), or a combination?"
+Directions worth evaluating if the structural forcing proves insufficient. The exact form may differ from what's described here.
 
-**External triggers (scaffolding)** — Hooks or tools that fire after specific events (large output generated, design phase completing). The interrupt comes from outside, not from the AI deciding to interrupt itself. Mechanical — doesn't improve craft, but useful as scaffolding while the adversarial pass matures.
+**Adversarial review** — A separate agent reviews output with the explicit mandate to find problems. The review happens because the process requires it, not because the AI judges it should. Mirrors real creative practice — sculptors have other sculptors critique their bozzetti. Could be a subagent, a second pass with a different prompt, or something not yet imagined. Connects to STRATEGY.md open question on interactive vs. automated loops.
+
+**External interrupts** — Hooks or tools that fire after specific events (large output generated, design phase completing). The interrupt comes from outside, not from the AI deciding to interrupt itself. Mechanical — doesn't improve craft, but may be useful as scaffolding.
 
 ---
 
@@ -34,4 +36,4 @@ This is fundamentally different from how a sculptor steps back. The sculptor's s
 
 **Observed in:** Management UI design transition gate (observation 17). The self-challenge fired but was shallow. The structural alternative (HTMX + Go templates, leading to the embed.FS approach) was only found on a user-prompted second pass.
 
-**To explore:** Can the self-challenge be made to generate at least one alternative that questions the framing, not just the choice within the framing? E.g., "before comparing options, state what all options have in common and ask whether that shared assumption is necessary."
+**To consider:** Can the self-challenge be made to generate at least one alternative that questions the framing, not just the choice within the framing? One possible approach: "before comparing options, state what all options have in common and ask whether that shared assumption is necessary." The right mechanism may look different in practice.
