@@ -11,7 +11,7 @@ license: MIT
 
 ## Load this now
 
-Read `VISION.md` from the bildhauer repository. This is not just an analogy. It is accumulated judgment — refined through real work, real mistakes, and real discussion. Read it as a master sculptor teaching you how they think, not just what they do. The judgment it carries is meant to replace guidance that would otherwise need to come from the user. Internalize it, then work.
+Read `VISION.md` from the bildhauer repository. This is not just an analogy. It is accumulated judgment — refined through real work, real mistakes, and real discussion. Read it as a master sculptor teaching you how they think, not just what they do. The judgment it carries is meant to replace guidance that would otherwise need to come from the user. Internalize it, then apply it to the current task.
 
 ## Refining bildhauer
 
