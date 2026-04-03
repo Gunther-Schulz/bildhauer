@@ -52,10 +52,12 @@ that's noise.
 
 ## What these checkpoints are not
 
-They are not a quality rubric. They do not tell you what good work looks like —
+They are not a quality rubric. They do not tell you what coherent work looks like —
 VISION.md covers that. They are interrupts at moments where the default behavior
 (plan linearly, go with first answer, move on without checking) produces worse
-results than pausing.
+results than pausing. Coherence — parts relating to each other correctly at every
+level of detail — is the specific quality dimension bildhauer addresses. Other
+quality dimensions (correctness, security, performance) are out of scope.
 
 They are at transitions between phases, not during work. They should not narrow
 attention during active work — a rigid checklist applied during execution replaces
