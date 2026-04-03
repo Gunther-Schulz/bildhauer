@@ -1,7 +1,7 @@
 ---
 name: bildhauer
-description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", or asks to evaluate whether the current approach is right before continuing. Also use when starting a significant implementation task, to establish the coarse-to-fine mindset.
-version: 0.3.0
+description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit adherence", or asks to evaluate whether the current approach is right before continuing. Also use when starting a significant implementation task, to establish the coarse-to-fine mindset.
+version: 0.4.0
 license: MIT
 ---
 
@@ -20,6 +20,8 @@ This framework is itself a work in progress. It improves through use, not throug
 - Did the checkpoints catch a real problem, or were they performative?
 - Did the user have to prompt a step-back or self-challenge that you should have done yourself?
 - Did you discover something worth capturing?
+
+**When the user asks to audit adherence**, compare actual behavior against PROCEDURE.md checkpoints. For each checkpoint, identify specific moments in the conversation where it should have fired. For each moment, assess: did it fire? If it fired, did it produce a different outcome than the default would have, or was it performative? Rate overall impact honestly — the question is whether the checkpoints changed behavior, not whether they were performed.
 
 **Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. But never edit bildhauer files without explicit permission. Propose the change, discuss it, and only write after the user agrees.
 
