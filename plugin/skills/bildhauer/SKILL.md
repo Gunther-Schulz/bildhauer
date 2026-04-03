@@ -30,4 +30,6 @@ This framework is itself a work in progress. It improves through use, not throug
 - New shortcoming or technique observed → propose addition to `OBSERVATIONS.md`
 - Strategic learning about the approach → propose update to `STRATEGY.md`
 
-**After updating bildhauer files**, run `~/dev/Gunther-Schulz/bildhauer/update-plugin.sh` to reinstall the plugin, then remind the user to run `/reload-plugins` to pick up the changes in this session.
+**After updating bildhauer files**, check the whole document for coherence — incremental additions create seams. The bildhauer documents should themselves exemplify what they teach: no part should read like it was bolted on. If the document has grown incoherent through additions, rewrite the affected section to flow naturally before committing.
+
+Then run `~/dev/Gunther-Schulz/bildhauer/update-plugin.sh` to reinstall the plugin, and remind the user to run `/reload-plugins` to pick up the changes in this session.
