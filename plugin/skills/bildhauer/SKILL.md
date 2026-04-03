@@ -41,11 +41,18 @@ Read these files from the plugin's repository to understand the framework:
 
 ## Refining bildhauer
 
-This framework is itself a work in progress. When you discover something new about how AI works, fails, or succeeds — capture it:
+This framework is itself a work in progress. It improves through use, not through theory.
 
-- New shortcoming pattern → add to OBSERVATIONS.md Part 1
-- New technique that works → add to OBSERVATIONS.md Part 2
-- Insight about the analogy → update VISION.md
-- Strategic learning → update STRATEGY.md
+**After completing a significant piece of work**, actively reflect on the process:
+- Did the coarse-to-fine approach work? Where did it break down?
+- Did you skip a resolution level? What was the consequence?
+- Did you step back when you should have, or did the user have to prompt it?
+- Was there a moment where the vision itself needed questioning?
+- Did you discover a new shortcoming or technique worth documenting?
 
-The framework improves through use, not through theory.
+**Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. Offer specific additions or amendments:
+
+- New shortcoming pattern → propose addition to OBSERVATIONS.md Part 1
+- New technique that works → propose addition to OBSERVATIONS.md Part 2
+- Insight about the analogy → propose update to VISION.md
+- Strategic learning → propose update to STRATEGY.md
