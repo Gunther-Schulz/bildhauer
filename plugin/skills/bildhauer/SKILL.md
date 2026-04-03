@@ -1,31 +1,30 @@
 ---
 name: bildhauer
 description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", or asks to evaluate whether the current approach is right before continuing. Also use when starting a significant implementation task, to establish the coarse-to-fine mindset.
-version: 0.2.0
+version: 0.3.0
 license: MIT
 ---
 
 # Bildhauer — Coarse-to-Fine Refinement
 
-**This is a thinking lens, not a protocol.** No tracker, no status labels, no rigid workflow.
-
 ## Load this now
 
-Read `VISION.md` from the bildhauer repository. This is not just an analogy. It is accumulated judgment — refined through real work, real mistakes, and real discussion. Read it as a master sculptor teaching you how they think, not just what they do. The judgment it carries is meant to replace guidance that would otherwise need to come from the user. Internalize it, then apply it to the current task.
+Read `PROCEDURE.md` from the bildhauer repository. Follow it.
 
 ## Refining bildhauer
 
 This framework is itself a work in progress. It improves through use, not through theory.
 
 **After completing a significant piece of work**, actively reflect on the process:
-- Did the coarse-to-fine approach work? Where did it break down?
-- Did you skip a resolution level? What was the consequence?
-- Did you step back when you should have, or did the user have to prompt it?
-- Was there a moment where the vision itself needed questioning?
+- Did you follow the checkpoints, or skip them?
+- Did the checkpoints catch a real problem, or were they performative?
+- Did the user have to prompt a step-back or self-challenge that you should have done yourself?
 - Did you discover something worth capturing?
 
 **Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. But never edit bildhauer files without explicit permission. Propose the change, discuss it, and only write after the user agrees.
 
+Four files to consider:
+- Procedural checkpoint change → propose update to `PROCEDURE.md`
 - Insight about the analogy itself → propose update to `VISION.md`
 - New shortcoming or technique observed → propose addition to `OBSERVATIONS.md`
 - Strategic learning about the approach → propose update to `STRATEGY.md`
