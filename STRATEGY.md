@@ -8,11 +8,17 @@ The sculptor works from coarse to fine. First, large chunks come off — establi
 
 Then the medium work. Each section gets structure — the arm gets an elbow, the face gets a nose. But still, the sculptor checks the whole: does the elbow match the shoulder? Does the nose fit the face? Nothing is detailed in isolation. Every part is shaped in relation to every other part.
 
-Then the fine work. Surface texture, fingernails, the curve of an eyelid. These details only make sense because the proportions and structure are already right. You can't polish a second nose.
+Then the fine work. Surface texture, fingernails, the curve of an eyelid. These details only make sense because the proportions and structure are already right.
+
+At every stage, the sculptor steps back and looks. Not just at what they're working on — at the whole piece. They don't trust their hands; they verify with their eyes. They look from multiple angles. They measure and compare. This checking is not separate from the work — it is the work. Chisel, step back, look. Chisel, step back, look.
+
+Sometimes during fine work, something feels off. A bump on the cheekbone. The sculptor could sand it down — a quick local fix. But instead they step back. The whole jaw is shifted. The bump is a symptom, not the problem. The right move is to go back to a coarser resolution and re-cut the jaw before continuing any detail on the face. This costs time — detail work already done on that area may need reworking. But it's less costly than building more detail on wrong proportions, where every addition inherits and amplifies the error.
+
+How does the sculptor know whether to sand the bump or re-cut the jaw? They check. They step back, compare both sides, look at the whole face. Sometimes the bump is just a bump. Sometimes it reveals a proportion problem underneath. The sculptor doesn't assume either way — they look at the actual stone and decide based on what they see.
 
 At every stage, the whole piece is coherent. There are no sudden spikes or crevices that don't belong. No random detail where the surrounding area is still rough. The sculptor never jumps resolution — never carves fingernails while the arm is still a block.
 
-If you tried to do it all at once — shape the block, define the structure, and polish the surface in a single pass — you'd get a mess. Fragments that are individually reasonable but don't relate to each other. An arm that doesn't match the shoulder. A polished ear on a head that's still a cube.
+If you tried to do it all at once — shape the block, define the structure, and polish the surface in a single pass — you'd get a mess. Fragments that are individually reasonable but don't relate to each other. The shoulders slightly uneven, and every detail built on them inherits the error. The further you go before catching it, the more work you lose when you finally have to go back.
 
 ---
 
@@ -22,9 +28,9 @@ AI generates code in a single pass. When asked to build a component, it produces
 
 This is structurally equivalent to the sculptor trying to produce a finished statue in a single pass from the raw stone. The result works — it compiles, it runs — but it lacks coherence across parts. One component uses `fmt.Printf`, its sibling uses `log.Printf`. One service shuts down gracefully, the other kills connections. Config values are loaded but never wired through. Sentinel values flow into user-facing outputs without anyone asking what the user actually needs to see.
 
-Each fragment is reasonable in isolation. The statue has two noses.
+Each fragment is reasonable in isolation. But the proportions are slightly off, and every detail built on them inherits and amplifies the error. One component uses one logging convention, its sibling uses another. One service shuts down gracefully, the other kills connections. Config values are loaded but never wired through. None of these are catastrophic on their own. Together they make the whole thing feel wrong.
 
-Post-hoc fixing (audits, reviews, patches) finds these problems but fights the existing shape. The ad-hoc decisions are baked into the structure. Patching one decision disturbs its neighbors. Multiple audit rounds surface more issues each time — not because the auditor gets better, but because each fix reveals new incoherence underneath. The foundation was never coherent; it was generated all at once.
+Post-hoc fixing (audits, reviews, patches) finds these problems but fights the existing shape. The ad-hoc decisions are baked into the structure. Patching one decision disturbs its neighbors. Multiple audit rounds surface more issues each time — not because the auditor gets better, but because each fix reveals new incoherence underneath. It's the sculptor sanding bumps on a shifted jaw — each bump is "fixed" but the face never looks right, because the problem is one resolution level deeper.
 
 The fundamental issue is not that AI is careless. It's that single-pass generation cannot produce coarse-to-fine coherence. The capability is there — AI can trace data flows, recognize patterns, check consistency — but it can't do these things *during* the generation pass. It can only do them *between* passes, when re-reading its own output against the broader context.
 
