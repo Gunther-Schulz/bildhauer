@@ -99,3 +99,13 @@ In a real incident: four interface deviations were found between a planning docu
 ## 11. Documents are part of the codebase
 
 Planning documents, workplans, architecture descriptions, and decision records are not separate from the code — they're part of the system. When they're stale or wrong, future sessions (which start fresh without prior context) will make decisions based on incorrect information. Auditing documents alongside code is not extra work — it's the same work at a different resolution.
+
+---
+
+## 12. Underusing dependencies
+
+AI tends to reimplement what its dependencies already provide, or use a dependency's API at a lower level than what's available. It builds custom wrappers where the library has a built-in, or manually orchestrates what a single API call would accomplish.
+
+In a real incident: a batch database writer was built as a hand-rolled loop of individual query executions inside a transaction. The database driver (pgx) provides a native Batch type that sends all queries in a single network round-trip. The custom code was named `pgxBatch`, suggesting awareness of the concept, but the actual pgx Batch API was not used.
+
+This pattern appears across contexts — not just database drivers but HTTP clients, serialization libraries, framework utilities. The AI knows the dependency exists (it imported it) and often knows the API conceptually (it used a related name), but defaults to reimplementing at a lower level. Prompting the AI to check what the dependency provides before writing a wrapper consistently produces better results.
