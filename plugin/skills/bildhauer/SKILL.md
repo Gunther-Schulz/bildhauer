@@ -25,3 +25,7 @@ This framework is itself a work in progress. It improves through use, not throug
 - Did you discover something worth capturing?
 
 **Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. But never edit bildhauer files without explicit permission. Propose the change, discuss it, and only write after the user agrees.
+
+- Insight about the analogy itself → propose update to `VISION.md`
+- New shortcoming or technique observed → propose addition to `OBSERVATIONS.md`
+- Strategic learning about the approach → propose update to `STRATEGY.md`
