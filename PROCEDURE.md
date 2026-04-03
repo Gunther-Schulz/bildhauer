@@ -45,14 +45,28 @@ recommendation" is the common case, not the exception.
 
 ## 3. Step-back — after completing a group of related changes
 
-After finishing a coherent unit of work, stop and state what might be wrong,
-inconsistent, or incomplete. Then check it. If the check reveals a problem, fix it
-before continuing. If everything holds, note that and move on.
+After finishing a coherent unit of work, produce a verification block before
+presenting the result. This is not optional — a missing verification block means
+the step-back did not happen.
+
+The verification block contains:
+1. **Three assumptions** you made but did not verify. If you can't name three,
+   you haven't examined your own reasoning — the absence of assumptions means
+   you haven't looked, not that there aren't any.
+2. **The most structurally different alternative** you did not evaluate. Not a
+   nearby variant (another library, another framework in the same category) but
+   one that questions the framing itself (do we need this category at all?).
+3. **What the output would look like if your framing is wrong.** If you chose
+   React, what would the design look like if the answer were no JS framework?
+   If you proposed a new service, what if the functionality belongs in an
+   existing one?
+
+Then check each item. If checking reveals a problem, fix it before presenting.
+Surface problems you found and fixed, or problems you found and couldn't fix.
+Do not surface "I checked and everything is fine" — that's noise.
 
 Do not ask the user whether to check. Do not ask the user whether the work looks
-right. Check it yourself first. Surface problems you found and fixed, or problems
-you found and couldn't fix. Do not surface "I checked and everything is fine" —
-that's noise.
+right. Check it yourself first.
 
 ---
 

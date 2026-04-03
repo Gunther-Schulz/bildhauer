@@ -16,25 +16,15 @@ This is not a wording problem. The AI knows it should step back. But the "I'm do
 
 This is fundamentally different from how a sculptor steps back. The sculptor's step-back is a physical action — they walk away from the work and look from a distance. The physical movement interrupts the flow. The AI "steps back" by generating more text in the same stream, which is the opposite of interrupting.
 
-### Approaches to explore (ordered by philosophy fit)
+### What's been done
 
-**1. Structural forcing (nearest term)**
-Convert the step-back from a behavioral instruction ("stop and check") into a required artifact. Before presenting any design output or completing any implementation phase, produce a verification block:
-- List three assumptions made but not verified
-- Name the most structurally different alternative not evaluated
-- Identify what the output would look like if the framing is wrong
+**Structural forcing (implemented)** — The step-back checkpoint in PROCEDURE.md now requires a verification block artifact (three unchecked assumptions, the most structurally different alternative not evaluated, what the output looks like if the framing is wrong). A missing verification block is visible; a skipped step-back is not. This converts the behavioral instruction into a structural requirement.
 
-Then check each item. The artifact requirement is harder to skip than the behavioral instruction because skipping it produces a visibly incomplete output. A missing verification block is noticeable. A skipped step-back is not.
+### Still to explore
 
-This fits bildhauer's philosophy — the sculptor doesn't just "step back," they measure proportions, compare both sides, look from multiple angles. The artifact is the procedural equivalent of the sculptor's measuring tools.
+**Adversarial pass** — After producing design or implementation output, a separate agent (subagent) reviews it with the explicit mandate to find problems. The review is structural — it happens because the process requires it, not because the AI judges it should. This mirrors real creative practice: sculptors have other sculptors critique their bozzetti. Connects to STRATEGY.md open question: "Should the loop be interactive with the user, automated (e.g., via subagents reviewing each other's work), or a combination?"
 
-**2. Adversarial pass (medium term)**
-After producing design or implementation output, a separate agent (subagent) reviews it with the explicit mandate to find problems. The review is structural — it happens because the process requires it, not because the AI judges it should. This mirrors real creative practice: sculptors have other sculptors critique their bozzetti.
-
-Connects to STRATEGY.md open question: "Should the loop be interactive with the user, automated (e.g., via subagents reviewing each other's work), or a combination?"
-
-**3. External triggers (scaffolding)**
-Hooks or tools that fire after specific events (large output generated, design phase completing). The interrupt comes from outside, not from the AI deciding to interrupt itself. This is mechanical — it doesn't require the AI to develop better judgment, just forces the checkpoint externally. Works but doesn't improve craft. Useful as scaffolding while approaches 1 and 2 mature.
+**External triggers (scaffolding)** — Hooks or tools that fire after specific events (large output generated, design phase completing). The interrupt comes from outside, not from the AI deciding to interrupt itself. Mechanical — doesn't improve craft, but useful as scaffolding while the adversarial pass matures.
 
 ---
 
