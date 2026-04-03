@@ -14,6 +14,8 @@ Sometimes during finer work, something feels off. A bump on the cheekbone. The s
 
 How does the sculptor know whether to sand the bump or reshape the jaw? They check. They step back, compare both sides, look at the whole face. Sometimes the bump is just a bump. Sometimes it reveals a proportion problem underneath. The sculptor doesn't assume either way — they look at the actual model and decide based on what they see.
 
+And before reshaping the jaw, the sculptor looks at what's built on top of it — the cheekbone, the ear placement, the line of the neck. Reshaping the jaw affects all of these. The sculptor checks both directions: what caused this problem (looking back toward the coarser shape) and what will this change affect (looking forward toward the finer details already in place).
+
 There is another kind of stepping back — rarer but more consequential. The sculptor has been refining a figure with arms at its sides. The proportions are good, the structure is emerging. Then they stop and ask: should this figure have its arms at its sides at all? Maybe the gesture is wrong. Maybe this should be a figure in motion, or a seated figure, or not a human figure at all. This isn't checking proportions — it's questioning the vision itself.
 
 The sculptor doesn't ask this every five minutes. But they do ask it periodically — especially at transitions, when a section of work is complete and the next section is about to begin. "Before I start on the arms, am I sure about the pose?" The cost of discovering the wrong pose after the arms are detailed is far greater than pausing to validate the vision now.
