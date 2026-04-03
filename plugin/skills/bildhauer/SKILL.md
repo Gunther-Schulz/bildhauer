@@ -25,11 +25,22 @@ This framework is itself a work in progress. It improves through use, not throug
 
 **Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. But never edit bildhauer files without explicit permission. Propose the change, discuss it, and only write after the user agrees.
 
-Four files to consider:
-- Procedural checkpoint change → propose update to `PROCEDURE.md`
-- Insight about the analogy itself → propose update to `VISION.md`
-- New shortcoming or technique observed → propose addition to `OBSERVATIONS.md`
-- Strategic learning about the approach → propose update to `STRATEGY.md`
+**Four documents, with dependencies:**
+
+| Document | Purpose | Derived from | When changed, also check |
+|---|---|---|---|
+| `VISION.md` | The guiding analogy — what good work looks like, the sculptor's mindset | First principles | `PROCEDURE.md` (checkpoints are derived from vision principles) |
+| `PROCEDURE.md` | Mandatory checkpoints that interrupt default AI behavior at phase transitions | `VISION.md` | Nothing — it's a leaf |
+| `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | `STRATEGY.md` (observations inform strategic direction) |
+| `STRATEGY.md` | The problem being solved, what works, and open design questions for the protocol | `OBSERVATIONS.md` + `VISION.md` | Nothing — it's a leaf |
+
+When proposing updates:
+- Procedural checkpoint change → `PROCEDURE.md`
+- Insight about the analogy itself → `VISION.md`
+- New shortcoming or technique observed → `OBSERVATIONS.md`
+- Strategic learning about the approach → `STRATEGY.md`
+
+**Maintenance rule:** When updating a parent doc, re-read its dependents and check whether they still follow from the updated parent. PROCEDURE.md derived from a VISION.md that no longer says what it used to is a stale procedure.
 
 **After updating bildhauer files**, check the whole document for coherence — incremental additions create seams. The bildhauer documents should themselves exemplify what they teach: no part should read like it was bolted on. If the document has grown incoherent through additions, rewrite the affected section to flow naturally before committing.
 
