@@ -1,6 +1,8 @@
-# Observations — AI Shortcomings
+# Observations
 
-Documented patterns of how AI fails when designing and building code. Each observation is grounded in real incidents. These inform what the protocol needs to mitigate.
+Documented patterns of how AI fails and what techniques produce better results. Each observation is grounded in real incidents. These inform what the protocol needs to mitigate and what it should encourage.
+
+## Part 1: Shortcomings
 
 ---
 
@@ -57,3 +59,43 @@ This confirms that multiple passes are structurally necessary, not just "being t
 When given a procedural checklist ("check A, then B, then C"), AI focuses on the listed items and stops seeing things outside the list. The checklist becomes the task rather than a tool for the task. In a real incident: an AI following a structured protocol found fewer issues than the same AI model working without the protocol — because the protocol channeled attention into category iteration at the expense of natural analytical depth.
 
 The tension: procedure is necessary (observations 1, 4, 5, 6 require it), but procedure also narrows (observation 7). The protocol must enforce the refinement discipline without replacing the AI's analytical capability with a rigid checklist.
+
+---
+
+## Part 2: Techniques That Work
+
+These were observed to produce better results than the default approach.
+
+---
+
+## 8. Trace flows, not fragments
+
+Checking code fragments in isolation misses cross-component issues. Tracing end-to-end flows — following data from where it's produced through each handoff to where it's consumed — reveals coherence problems that are invisible at the fragment level.
+
+In a real incident: a fragment-based audit checked each component's code quality and found six issues (logging inconsistency, missing nil checks, shutdown method). A flow-based audit of the same code traced the approval path from agent to human approver and found that a database FK between two tables would always be NULL — because no mechanism connected the two systems that the FK implied a relationship between. Neither component was broken individually. The incoherence only appeared at the handoff.
+
+Specific flows worth tracing: data from producer to consumer (what does the recipient actually receive?), config from definition to usage (does every loaded value reach its destination?), errors from origin to handler (who sees the error and can they act on it?).
+
+---
+
+## 9. Ask "bump or jaw?" for every finding
+
+When a wrong detail is found, the default is to fix the detail. But the detail may be a symptom of something wrong at a coarser level. Before fixing, step back one resolution and check.
+
+In practice: a config value loaded but never wired through could be fixed by adding the wiring. But it could also indicate that the wiring between components was never systematically checked — which means other config values might be broken too. The single finding is the bump. The missing systematic check is the jaw.
+
+The technique: for each finding, ask "what decision produced this?" If the answer is "an ad-hoc decision during implementation," check whether other ad-hoc decisions in the same area have the same problem.
+
+---
+
+## 10. Compare plan to implementation after building
+
+Planning documents specify interfaces, contracts, and design decisions. Implementation drifts from them — sometimes for good reasons, sometimes by accident. After implementation, comparing the plan against what was built catches two things: stale documentation that will mislead future sessions, and unintentional deviations that indicate decisions were made ad-hoc rather than deliberately.
+
+In a real incident: four interface deviations were found between a planning document and the implementation. Three were reasonable (needed for features the plan hadn't anticipated). One revealed a dropped parameter that was symptomatic of a larger design constraint. The planning document also had a stale architecture description that contradicted the spike findings — a future session reading it would make wrong decisions.
+
+---
+
+## 11. Documents are part of the codebase
+
+Planning documents, workplans, architecture descriptions, and decision records are not separate from the code — they're part of the system. When they're stale or wrong, future sessions (which start fresh without prior context) will make decisions based on incorrect information. Auditing documents alongside code is not extra work — it's the same work at a different resolution.
