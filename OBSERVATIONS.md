@@ -28,6 +28,8 @@ AI can generate compelling-sounding architectural critiques without verifying th
 
 In a real incident: AI questioned whether an entire architectural integration point was wrong, proposing a fundamental redesign. When prompted to verify, investigation of the actual constraints showed the original approach was correct — the limitation was in the upstream system, not in the architecture. Had the AI acted on its unverified hypothesis, it would have wasted effort redesigning something that was already the right solution.
 
+A related pattern: when a hypothesis or approach is rejected, the assumptions underneath it often carry forward into the next attempt unexamined. The approach changes but the same wrong assumptions drive the new one. Explicitly listing what was assumed — and testing shared assumptions before the next attempt — prevents repeating the same wrong turn at a deeper level.
+
 Observations 2 and 3 are two sides of the same coin. In one case, the AI doesn't generate the broader question when it should. In the other, it generates the broader question but doesn't validate it. Both have the same fix: look at the actual stone. Verify before acting — whether you're fixing a detail or questioning the whole shape.
 
 ---
@@ -86,6 +88,8 @@ In practice: a config value loaded but never wired through could be fixed by add
 
 The technique: for each finding, ask "what decision produced this?" If the answer is "an ad-hoc decision during implementation," check whether other ad-hoc decisions in the same area have the same problem.
 
+A related technique: when you find a problem, search for siblings. If a pattern exists once — a bug, an inconsistency, a smell — it likely exists elsewhere. Fixing one instance without searching for others leaves the systemic issue in place.
+
 ---
 
 ## 10. Compare plan to implementation after building
@@ -121,3 +125,11 @@ In a real incident: the AI was about to design a context server schema (detail w
 Had the AI acted on the first step-back without a second pass, it would have designed two separate products — a governance tool and a knowledge base — missing the core integration that makes the product coherent.
 
 This mirrors observation 6 (each audit pass surfaces more) but for design thinking. The AI's first reframing is a rough pass. It needs at least one more to reach the actual insight.
+
+---
+
+## 14. Agreement without challenge
+
+AI defaults to agreeing with proposals, especially reasonable-sounding ones. It builds on what's presented rather than questioning it. But reasonable proposals are exactly where unchallenged assumptions do the most damage — they sound right, so nobody checks.
+
+Before building on any approach, design direction, or assumption, stating at least one concern, limitation, or alternative catches problems early. If after genuine evaluation none exist, that's fine — but the evaluation must happen visibly, not be skipped because the proposal sounds good.

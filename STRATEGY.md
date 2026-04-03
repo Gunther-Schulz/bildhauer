@@ -50,6 +50,8 @@ These are observations from experience, not prescriptions. They describe practic
 
 **Existing code is the authority.** When building into an existing codebase, the codebase's patterns are the standard — not the AI's training data, not general best practices. Read the closest existing equivalent before writing a new component. Match its conventions.
 
+**Challenge before building.** When presented with an approach or design direction, state at least one concern, limitation, or alternative before building on it. Reasonable-sounding proposals are where unchallenged assumptions do the most damage. This connects to the vision's "check the vision at transitions" but applies at every decision point, not just phase transitions.
+
 ---
 
 ## Open Questions
