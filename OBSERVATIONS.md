@@ -109,3 +109,15 @@ AI tends to reimplement what its dependencies already provide, or use a dependen
 In a real incident: a batch database writer was built as a hand-rolled loop of individual query executions inside a transaction. The database driver (pgx) provides a native Batch type that sends all queries in a single network round-trip. The custom code was named `pgxBatch`, suggesting awareness of the concept, but the actual pgx Batch API was not used.
 
 This pattern appears across contexts — not just database drivers but HTTP clients, serialization libraries, framework utilities. The AI knows the dependency exists (it imported it) and often knows the API conceptually (it used a related name), but defaults to reimplementing at a lower level. Prompting the AI to check what the dependency provides before writing a wrapper consistently produces better results.
+
+---
+
+## 13. First step-back feels sufficient but isn't
+
+When prompted to step back and reconsider an approach, the AI produces a first reframing and settles on it. The answer feels complete. But a second pass from the same coarser level consistently produces deeper insight. The refinement loop applies to design thinking, not just code.
+
+In a real incident: the AI was about to design a context server schema (detail work) when prompted to step back and question the product framing. First pass produced: "these might be two separate products — governance and knowledge management." This felt like a complete insight. When pushed to do another pass, the second reframing was deeper and contradicted the first: "no, these are one product — the knowledge informs the governance and the governance enforces the knowledge. Neither is complete alone." The second pass found the brain-and-muscle relationship that the first pass had split apart.
+
+Had the AI acted on the first step-back without a second pass, it would have designed two separate products — a governance tool and a knowledge base — missing the core integration that makes the product coherent.
+
+This mirrors observation 6 (each audit pass surfaces more) but for design thinking. The AI's first reframing is a rough pass. It needs at least one more to reach the actual insight.
