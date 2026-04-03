@@ -25,7 +25,7 @@ This framework is itself a work in progress. It improves through use, not throug
 
 **Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. But never edit bildhauer files without explicit permission. Propose the change, discuss it, and only write after the user agrees.
 
-**Four documents, with dependencies:**
+**Five documents, with dependencies:**
 
 | Document | Purpose | Derived from | When changed, also check |
 |---|---|---|---|
@@ -33,12 +33,14 @@ This framework is itself a work in progress. It improves through use, not throug
 | `PROCEDURE.md` | Actionable steps translating the philosophy into practice for technical work | `VISION.md` | Nothing — it's a leaf |
 | `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | `STRATEGY.md` (observations inform strategic direction) |
 | `STRATEGY.md` | The problem being solved, what works, and open design questions for the protocol | `OBSERVATIONS.md` + `VISION.md` | Nothing — it's a leaf |
+| `ROADMAP.md` | Concrete work items for improving the framework, grounded in observed failures | `OBSERVATIONS.md` + adherence audits | Nothing — it's a leaf |
 
 When proposing updates:
 - Procedural checkpoint change → `PROCEDURE.md`
 - Insight about the analogy itself → `VISION.md`
 - New shortcoming or technique observed → `OBSERVATIONS.md`
 - Strategic learning about the approach → `STRATEGY.md`
+- Concrete improvement work item → `ROADMAP.md`
 
 **Maintenance rule:** When updating a parent doc, re-read its dependents and check whether they still follow from the updated parent. PROCEDURE.md derived from a VISION.md that no longer says what it used to is a stale procedure.
 
