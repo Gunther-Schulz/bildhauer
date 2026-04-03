@@ -30,4 +30,4 @@ This framework is itself a work in progress. It improves through use, not throug
 - New shortcoming or technique observed → propose addition to `OBSERVATIONS.md`
 - Strategic learning about the approach → propose update to `STRATEGY.md`
 
-**After updating bildhauer files**, remind the user to run `! ./update-plugin.sh` from the bildhauer repo and then `/reload-plugins` to pick up the changes in this session.
+**After updating bildhauer files**, run `~/dev/Gunther-Schulz/bildhauer/update-plugin.sh` to reinstall the plugin, then remind the user to run `/reload-plugins` to pick up the changes in this session.
