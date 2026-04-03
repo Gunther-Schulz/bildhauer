@@ -60,7 +60,7 @@ These are the design space to explore. No premature decisions.
 
 - How should the refinement passes be structured? Fixed phases, or emergent from the work?
 - What level of accountability (recording findings, decisions, rationale) balances diligence against overhead?
-- Should the loop be interactive with the user, automated (e.g., via subagents reviewing each other's work), or a combination?
+- Should the loop be interactive with the user, automated (e.g., via subagents reviewing each other's work), or a combination? *Observation 15 (design-to-build transition gate) suggests "combination" — the triage and risk identification steps are autonomous, while the actual decisions on structural blockers require human judgment. The gate narrows the human decision surface rather than removing it.*
 - How should reference knowledge (common blind spots, minimum quality checks) be made available without narrowing the AI's attention?
 - How does the protocol adapt to different task types — a code audit needs different passes than a greenfield implementation?
 - What signals indicate that a pass is complete and the next resolution level is appropriate?

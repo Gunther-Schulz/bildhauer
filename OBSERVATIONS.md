@@ -133,3 +133,24 @@ This mirrors observation 6 (each audit pass surfaces more) but for design thinki
 AI defaults to agreeing with proposals, especially reasonable-sounding ones. It builds on what's presented rather than questioning it. But reasonable proposals are exactly where unchallenged assumptions do the most damage — they sound right, so nobody checks.
 
 Before building on any approach, design direction, or assumption, stating at least one concern, limitation, or alternative catches problems early. If after genuine evaluation none exist, that's fine — but the evaluation must happen visibly, not be skipped because the proposal sounds good.
+
+---
+
+## 15. Design-to-build transition gate
+
+When a design doc exists and a build phase is about to start, there's a repeatable pattern that catches structural problems before they're baked into code:
+
+1. Read the design doc and all its context (roadmap, supporting docs, prior decisions)
+2. Identify all open questions and unresolved decisions
+3. Triage each by structural impact: does it affect everything built on top (coarse-level, like schema semantics or query behavior), or is it a refinement that can be added later without redesign (fine-level, like whether an entity type is separate or tagged)?
+4. For structural blockers: evaluate alternatives, recommend a decision
+5. For refinements: explicitly defer with rationale — document them as conscious deferrals, not open questions
+6. Identify unstated dependencies (decisions the design doc assumes are made but hasn't flagged)
+7. Define the first buildable vertical slice — the smallest unit that's deployable and testable
+8. Flag risks that the design didn't surface
+
+In a real incident: a design doc listed four open questions as equal blockers before build could start. The transition gate triaged them: two were structural (conflicting rules resolution, structured data support — both affect schema and query semantics), two were refinements (SOP entity types, multi-dimensional query filtering — both deferrable without redesign). It also surfaced an unstated dependency the doc had deferred but the build couldn't start without (embedding model choice). Without the gate, the team would have either stalled resolving all four equally, or started building and hit the structural ones mid-implementation.
+
+The key property: the triage itself (structural vs. surface) is assessable from the design doc alone. Human judgment is only needed for the actual decisions on blocking items. This makes the gate a strong candidate for autonomous execution — it narrows the human decision surface rather than expanding it.
+
+This is a concrete instance of the bildhauer principle "at transitions, check the vision" — but at a resolution where it can be formalized. The sculptor doesn't question the pose every five minutes, but they do at transitions. This gate fires at the design-to-build transition specifically.
