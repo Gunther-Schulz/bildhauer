@@ -17,6 +17,17 @@ pieces don't fit together, or that the structure you're working within doesn't
 support what you're trying to do, revise the plan before starting. The whole point
 is that rethinking is cheap here and expensive after you've started cutting.
 
+When the work involves a data model, interface, or schema, trace the data flow in
+both directions before finalizing. Upstream: identify what produces the data
+(ingestion paths, user input, other services) and verify they can populate every
+field the schema requires. Downstream: identify what consumes the data (from the
+roadmap, design docs, or known dependencies) and verify the schema serves them. A
+schema field that no upstream path can populate is dead. A schema that doesn't
+serve a documented downstream consumer has a gap. This check extends the bozzetto's
+structural reasoning beyond the current task to the system's data flow — the
+sculptor considers not just the joint they're shaping but what was built below it
+and what will be built on top.
+
 ---
 
 ## 2. Self-challenge — at every decision point

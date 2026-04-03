@@ -178,3 +178,15 @@ In a real incident: a design transition gate for a management UI produced a stru
 The self-challenge checkpoint has a related failure mode in this context: it generates *nearby* alternatives (another JS framework) rather than *structural* alternatives (do we need a JS framework at all?). The structure encourages evaluation within the framing rather than questioning the framing itself. A table comparing React vs. Svelte feels like a thorough evaluation, but the column headers are already wrong — the real alternative isn't in the table.
 
 This is distinct from observation 7 (procedure narrows attention). Observation 7 is about checklists constraining what the AI looks at during work. This is about structured output constraining what the AI checks after work — the format substitutes for the verification.
+
+---
+
+## 18. Schema designed for current task, not data flow
+
+When designing a data model, AI optimizes for the immediate task — the current component's read or write needs. It does not check whether documented upstream producers can populate the schema, or whether documented downstream consumers can use it. The schema is correct for its first use case but incomplete for the system.
+
+In a real incident: a `BusinessRule` entity schema was designed for the context server's query layer (semantic search by agents). The schema included an `applies_to` field scoped as "which agent this rule is relevant to" — correct for search filtering. Seven implementation steps later, when designing policy derivation (generating CEL gateway rules from approved BusinessRules), the schema had no field mapping rules to specific MCP tool names. The gateway needs `mcp.tool.name == "process_refund"` but the schema only had `applies_to: "pricing-agent"`. The downstream consumer (policy derivation) was documented in the roadmap as depending on the context server schema. The gap was discoverable at schema design time.
+
+The same pattern applies upstream: a field added to a schema is only useful if something can populate it. Adding `governed_tools` to BusinessRule raises the question: can the LLM extraction pipeline infer tool names from document text? Can a human entering a rule manually select from available tools? If neither upstream path can populate the field reliably, it's dead schema.
+
+This is related to observation 8 (trace flows, not fragments) but operates at design time rather than audit time. Observation 8 catches flow problems in existing code. This observation catches flow problems in schemas before code is written — the data model is designed for a component, not for the flow through the system.
