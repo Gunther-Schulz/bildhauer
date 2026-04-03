@@ -154,3 +154,15 @@ In a real incident: a design doc listed four open questions as equal blockers be
 The key property: the triage itself (structural vs. surface) is assessable from the design doc alone. Human judgment is only needed for the actual decisions on blocking items. This makes the gate a strong candidate for autonomous execution — it narrows the human decision surface rather than expanding it.
 
 This is a concrete instance of the bildhauer principle "at transitions, check the vision" — but at a resolution where it can be formalized. The sculptor doesn't question the pose every five minutes, but they do at transitions. This gate fires at the design-to-build transition specifically.
+
+---
+
+## 16. Plans don't survive single-pass execution
+
+A correct build sequence — steps ordered by dependency, each independently testable — produces no benefit if all steps are executed as a single generation pass. The sequence defines verification points. Skipping verification turns a multi-pass build into a single-pass build wearing a multi-pass plan as a costume.
+
+In a real incident: a 7-step build sequence was defined with explicit dependency ordering (schema → scaffold → embedding provider → MCP tools → Docker Compose wiring). Each step was described as "testable independently." Then all 7 steps were implemented in one pass — 15 files written without testing any intermediate step. When the end-to-end test failed (pgvector query returning empty results), the failure could have been in the vector literal format, the pgx named args casting, the embedding provider output, or the MCP protocol layer. Nothing had been verified independently, so isolation was impossible.
+
+The fix was obvious in hindsight: test the store layer query against Postgres directly before wrapping it in an MCP tool handler. But the single-pass execution skipped that verification point even though the plan explicitly included it.
+
+The pattern: the AI can produce a correct build plan with the right granularity and verification points, then collapse it into a single generation pass because generating code is what it defaults to. The plan exists but doesn't interrupt the generation. This is observation 1 (everything at once) applied to a build sequence rather than a single file — the scope is larger but the failure mode is identical.
