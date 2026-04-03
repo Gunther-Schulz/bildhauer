@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "bildhauer-marketplace",
+  "description": "Bildhauer — coarse-to-fine refinement framework for AI-assisted development",
+  "owner": {
+    "name": "Gunther Schulz",
+    "email": "noreply@local"
+  },
+  "plugins": [
+    {
+      "name": "bildhauer",
+      "description": "Coarse-to-fine refinement framework. Loads the Bildhauer vision and observations to guide how work is approached — from rough to detailed, checking coherence at every stage.",
+      "source": "./plugin"
+    }
+  ]
+}

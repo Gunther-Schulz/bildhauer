@@ -1,0 +1,10 @@
+{
+  "name": "bildhauer",
+  "version": "0.1.0",
+  "description": "Coarse-to-fine refinement framework for AI-assisted development. Loads vision and observations as a thinking lens, not a rigid protocol.",
+  "author": {
+    "name": "Gunther Schulz"
+  },
+  "repository": "https://github.com/Gunther-Schulz/bildhauer",
+  "license": "MIT"
+}
