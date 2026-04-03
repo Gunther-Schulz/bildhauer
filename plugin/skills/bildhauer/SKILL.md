@@ -50,7 +50,7 @@ This framework is itself a work in progress. It improves through use, not throug
 - Was there a moment where the vision itself needed questioning?
 - Did you discover a new shortcoming or technique worth documenting?
 
-**Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. Offer specific additions or amendments:
+**Propose updates to the bildhauer repo** based on what you observed — don't wait for the user to ask. But never edit bildhauer files without explicit permission. Propose the change, discuss it, and only write after the user agrees. Offer specific additions or amendments:
 
 - New shortcoming pattern → propose addition to OBSERVATIONS.md Part 1
 - New technique that works → propose addition to OBSERVATIONS.md Part 2
