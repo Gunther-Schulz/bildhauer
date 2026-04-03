@@ -29,3 +29,5 @@ This framework is itself a work in progress. It improves through use, not throug
 - Insight about the analogy itself → propose update to `VISION.md`
 - New shortcoming or technique observed → propose addition to `OBSERVATIONS.md`
 - Strategic learning about the approach → propose update to `STRATEGY.md`
+
+**After updating bildhauer files**, remind the user to run `! ./update-plugin.sh` from the bildhauer repo and then `/reload-plugins` to pick up the changes in this session.
