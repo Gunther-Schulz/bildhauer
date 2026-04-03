@@ -52,12 +52,14 @@ that's noise.
 
 ## What these checkpoints are not
 
-They are not a quality rubric. They do not tell you what coherent work looks like —
-VISION.md covers that. They are interrupts at moments where the default behavior
-(plan linearly, go with first answer, move on without checking) produces worse
-results than pausing. Coherence — parts relating to each other correctly at every
-level of detail — is the specific quality dimension bildhauer addresses. Other
-quality dimensions (correctness, security, performance) are out of scope.
+They are not a quality rubric. They do not tell you what good craftsmanship looks
+like — VISION.md covers that. They are interrupts at moments where the default
+behavior (plan linearly, go with first answer, move on without checking) produces
+worse results than pausing. The vision describes the sculptor's full responsibility
+— coherence, grain, structural reinforcement, proportion, repairability,
+installation. The procedure currently translates the coherence dimension into
+checkpoints. The others live in the vision as craft knowledge, not yet formalized
+into procedural steps.
 
 They are at transitions between phases, not during work. They should not narrow
 attention during active work — a rigid checklist applied during execution replaces

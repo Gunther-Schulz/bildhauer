@@ -29,8 +29,8 @@ This framework is itself a work in progress. It improves through use, not throug
 
 | Document | Purpose | Derived from | When changed, also check |
 |---|---|---|---|
-| `VISION.md` | The guiding analogy — what good work looks like, the sculptor's mindset | First principles | `PROCEDURE.md` (checkpoints are derived from vision principles) |
-| `PROCEDURE.md` | Mandatory checkpoints that interrupt default AI behavior at phase transitions | `VISION.md` | Nothing — it's a leaf |
+| `VISION.md` | The philosophy of good craftsmanship — what quality means and when each dimension is attended to | First principles | `PROCEDURE.md` (checkpoints are derived from vision principles) |
+| `PROCEDURE.md` | Actionable steps translating the philosophy into practice for technical work | `VISION.md` | Nothing — it's a leaf |
 | `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | `STRATEGY.md` (observations inform strategic direction) |
 | `STRATEGY.md` | The problem being solved, what works, and open design questions for the protocol | `OBSERVATIONS.md` + `VISION.md` | Nothing — it's a leaf |
 
