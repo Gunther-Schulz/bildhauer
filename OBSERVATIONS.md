@@ -14,19 +14,19 @@ AI generates code in a single pass — struct layout, error handling, logging co
 
 When AI encounters a problem during refinement or audit, it defaults to fixing the immediate detail. It will never say "this approach is fundamentally wrong, we should rethink this part." Instead it produces increasingly elaborate workarounds to preserve a bad foundation. The arm is too short so it elongates the fingers.
 
-The root cause: AI treats existing code — including code it just wrote — as something to preserve and modify, not as something to potentially discard and redo. It has a strong bias toward incremental patching over structural rework. It refuses to go back to a coarser resolution and re-cut.
+The observable result: wrong details get patched individually, each patch potentially introducing new friction, multiple rounds of fixes needed — when stepping back to the coarser level earlier would have identified the root cause and addressed many details at once. Whether the AI "chooses" local fixes or simply defaults to them is unknown, but the outcome is consistent: significant wasted time and effort.
 
-A related pattern: AI doesn't distinguish between "this detail is wrong" and "a decision upstream is wrong." Every problem is treated as a local fix. When a wrong detail is actually a symptom of a wrong assumption or a wrong approach, the AI sands the symptom rather than stepping back to check the shape.
+A related pattern: even when the AI has read enough code to see a broader problem, a localized finding focuses its response on that specific issue. The AI read the whole file during the audit — it had the context to connect the detail to the larger pattern — but the specific finding becomes the scope of the fix. The broader question goes unasked.
 
 ---
 
-## 3. False insights that sound like wisdom
+## 3. Unvalidated hypotheses treated as conclusions
 
-The opposite of observation 2 also happens. AI can generate compelling-sounding architectural critiques that aren't grounded in evidence. "Maybe the whole approach is wrong!" sounds like the sculptor stepping back to check proportions — but if the critique isn't verified against actual constraints, it's imagining a crack in the stone that isn't there.
+AI can generate compelling-sounding architectural critiques without verifying them. "Maybe the whole approach is wrong!" is a valid hypothesis — generating it is correct. The failure is presenting it as a realization and acting on it without checking.
 
-In a real incident: AI questioned whether an entire architectural integration point was wrong, proposing a fundamental redesign. Investigation of the actual constraints showed the original approach was correct — the limitation was in the upstream system, not in the architecture. Had the AI acted on its unverified critique, it would have wasted effort redesigning something that was already the right solution.
+In a real incident: AI questioned whether an entire architectural integration point was wrong, proposing a fundamental redesign. When prompted to verify, investigation of the actual constraints showed the original approach was correct — the limitation was in the upstream system, not in the architecture. Had the AI acted on its unverified hypothesis, it would have wasted effort redesigning something that was already the right solution.
 
-Both observation 2 and 3 have the same fix: look at the actual stone. Verify before acting — whether you're fixing a detail or questioning the whole shape.
+Observations 2 and 3 are two sides of the same coin. In one case, the AI doesn't generate the broader question when it should. In the other, it generates the broader question but doesn't validate it. Both have the same fix: look at the actual stone. Verify before acting — whether you're fixing a detail or questioning the whole shape.
 
 ---
 
