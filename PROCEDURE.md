@@ -156,4 +156,5 @@ significant new content) that could invalidate prior structural conclusions. In
 that case, re-run the affected checkpoints on the changed parts, not the full
 procedure on everything.
 
-See observation 20 for the evidence behind this.
+Evidence: repeated refinement passes on the same artifact show diminishing
+structural findings. Recognizing stabilization avoids overworking.
