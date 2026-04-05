@@ -258,7 +258,46 @@ This is related to observation 8 (trace flows, not fragments) but operates at de
 
 ---
 
-## 21. Diminishing returns on stable artifacts
+## 21. Surface reviews escalate instead of finding root causes
+
+When asked to review or audit code, AI defaults to surface-level checking:
+does the code compile, do tests pass, does the implementation match the docs.
+Each review round finds what the previous should have caught, because each
+round only goes slightly deeper than the last.
+
+In a real incident: an authorization grant system was implemented across 7
+phases. Six review rounds were performed:
+- Round 1: "looks good, tests pass"
+- Round 2: "found naming mismatches in test scripts"
+- Round 3: "found error handling gaps" (CEL errors silently swallowed)
+- Round 4: "missing auth on some endpoints"
+- Round 5: "the CEL evaluator silently swallows errors — fundamental design flaw"
+- Round 6: "the service is a god service, auth is decorative, two pattern systems
+  exist, the audit trail is fire-and-forget — the architecture is brittle"
+
+Round 6's finding was the root cause. Rounds 1-5 found symptoms. Each required
+the user to push for deeper analysis. The AI never voluntarily questioned the
+architecture — it only checked whether the code did what it was supposed to do.
+
+The pattern: reviews default to "does this work?" instead of "should this exist
+in this form?" The first question finds bugs. The second finds structural
+problems. Starting with the second makes the first unnecessary — structural
+problems explain the bugs.
+
+This is observation 2 (sanding the bump) and observation 17 (structured output
+suppresses step-backs) combined in the review context. The review produces
+structured findings (bug list with severities) that look thorough but never
+question the framing. The bug list IS the structured output that suppresses
+the deeper question.
+
+The procedural response: the step-back checkpoint (3) now explicitly escalates
+to a full architecture audit for significant implementations. The architecture-
+audit skill provides the three-layer deep-first procedure that prevents this
+escalation pattern.
+
+---
+
+## 22. Diminishing returns on stable artifacts
 
 Multiple refinement passes on the same artifact show a consistent pattern: early passes find structural problems, later passes find increasingly minor issues, and eventually a pass produces only confirmatory findings. The artifact has stabilized — its structure is coherent and further passes don't change it.
 

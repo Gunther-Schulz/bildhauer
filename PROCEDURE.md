@@ -92,6 +92,14 @@ Do not surface "I checked and everything is fine" — that's noise.
 Do not ask the user whether to check. Do not ask the user whether the work looks
 right. Check it yourself first.
 
+For significant implementations (multiple components, new subsystems, changes to
+data flow), the step-back should escalate to a full architecture audit. The
+step-back's three-item verification catches individual assumptions. The audit
+catches structural problems — god components, boundary mismatches, silent failure
+modes — that the step-back is not designed to find. If the architecture-audit
+skill is available, invoke it. If not, apply its principle: start with "is the
+architecture the right shape?" before checking details.
+
 ---
 
 ## 4. Grain — before building on external components
