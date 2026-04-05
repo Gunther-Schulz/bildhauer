@@ -181,7 +181,41 @@ This is distinct from observation 7 (procedure narrows attention). Observation 7
 
 ---
 
-## 18. Schema designed for current task, not data flow
+## 18. Patching without locating
+
+When a test or integration fails, AI defaults to hypothesizing a cause and
+patching it. If the patch doesn't work, it hypothesizes another cause and patches
+again. Each hypothesis sounds plausible. Each patch adds complexity. The actual
+failure location is never isolated.
+
+In a real incident: an e2e test step 8 (MCP tool call through gateway) hung.
+Over 45 minutes, the AI tried: dry mode for HITL auto-resolution, Docker compose
+overrides for env vars, sentinel files for safety, session re-initialization,
+multiline-to-single-line JSON argument refactoring. None worked. The user asked
+one question: "is the problem the runner or the app?" A manual test proved the
+app worked perfectly. The actual cause: a bash quoting bug in the test script —
+`$session_header` expanded without quotes, dropping the MCP session header. A
+5-minute investigation once the boundary was identified.
+
+The pattern: the AI treated each failed attempt as new information about the
+system ("dry mode didn't help, so it must be the session state") instead of as
+evidence that it hadn't located the problem ("I'm patching things that aren't
+broken"). The debugging approach was indistinguishable from random: try something,
+see if it works, try something else. A systematic approach — test each side of
+the failure boundary independently — would have found the bash bug immediately.
+
+This is observation 2 (sanding the bump) applied to debugging rather than
+implementation. Observation 2 says: don't fix the detail, check the jaw. This
+observation says: don't fix the hypothesis, locate the failure. Both have the
+same root cause: acting before verifying.
+
+The procedural response is checkpoint 4 (diagnosis): before writing any fix for
+a failure, test each side of the boundary independently and name the specific
+failure location.
+
+---
+
+## 19. Schema designed for current task, not data flow (was 18)
 
 When designing a data model, AI optimizes for the immediate task — the current component's read or write needs. It does not check whether documented upstream producers can populate the schema, or whether documented downstream consumers can use it. The schema is correct for its first use case but incomplete for the system.
 
@@ -193,7 +227,7 @@ This is related to observation 8 (trace flows, not fragments) but operates at de
 
 ---
 
-## 19. Diminishing returns on stable artifacts
+## 20. Diminishing returns on stable artifacts (was 19)
 
 Multiple refinement passes on the same artifact show a consistent pattern: early passes find structural problems, later passes find increasingly minor issues, and eventually a pass produces only confirmatory findings. The artifact has stabilized — its structure is coherent and further passes don't change it.
 

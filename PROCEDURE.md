@@ -86,6 +86,39 @@ right. Check it yourself first.
 
 ---
 
+## 4. Diagnosis — when something breaks during work
+
+When something that should work doesn't — a test fails, a call hangs, an
+output is wrong — the default is to start fixing. Hypothesize a cause,
+patch it, rerun. If it still fails, hypothesize another cause, patch again.
+Each patch adds complexity without verifying the premise: is the problem
+where you think it is?
+
+Before writing any fix, isolate the failure:
+
+1. **Locate the boundary.** Every failure occurs at an interface between
+   two things — the app and the test, the service and the database, the
+   gateway and the backend. Identify which boundary.
+2. **Test each side independently.** If a test fails, does the same
+   operation work when called manually? If a service call hangs, does
+   the service respond to a direct request? The side that works is not
+   the problem.
+3. **Name the specific failure** before writing code. "The bash variable
+   `$session_header` expands to empty because it's unquoted" is a
+   diagnosis. "The MCP session might be corrupted after a denied call"
+   is a hypothesis. Do not write fixes for hypotheses.
+
+The verifiable checkpoint: you can point to the exact component and line
+where the failure occurs, and you can reproduce it in isolation, before
+you write the fix.
+
+This checkpoint is the procedural form of the vision's "is this just a
+bump, or is the whole jaw shifted?" But it fires during active work, not
+at phase transitions. The trigger is any unexpected failure. The mandatory
+action is isolation before intervention.
+
+---
+
 ## What these checkpoints are not
 
 They are not a quality rubric. They do not tell you what good craftsmanship looks
@@ -97,9 +130,11 @@ installation. The procedure currently translates the coherence dimension into
 checkpoints. The others live in the vision as craft knowledge, not yet formalized
 into procedural steps.
 
-They are at transitions between phases, not during work. They should not narrow
-attention during active work — a rigid checklist applied during execution replaces
-analytical thinking with box-ticking. If these checkpoints start becoming
+Checkpoints 1–3 are at transitions between phases, not during work. Checkpoint 4
+is the exception — it fires during work, triggered by failure. It should not
+narrow attention during active work. The other three checkpoints should not
+either — a rigid checklist applied during execution replaces analytical thinking
+with box-ticking. If these checkpoints start becoming
 performative — going through the motions without genuine evaluation — they have
 failed and need revision.
 
@@ -121,4 +156,4 @@ significant new content) that could invalidate prior structural conclusions. In
 that case, re-run the affected checkpoints on the changed parts, not the full
 procedure on everything.
 
-See observation 19 for the evidence behind this.
+See observation 20 for the evidence behind this.
