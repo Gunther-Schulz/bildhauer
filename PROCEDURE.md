@@ -184,19 +184,31 @@ without genuine evaluation — they have failed and need revision.
 
 ## Recognizing when refinement is complete
 
-Before running the full procedure on content that has been through a previous pass,
-assess: has the content changed structurally since the last pass? If only details
-changed (field names, wording, minor additions), a full pass is unlikely to find
-structural problems.
+Before running the full procedure, identify the **specific artifact** being
+evaluated. Then ask: has THIS artifact — not the session, not a related artifact,
+not a previous version of a different plan — been through a bildhauer pass before?
 
-When you recognize this, say so: "This artifact has been through N passes. The
-structure hasn't changed since pass M. I'd recommend building rather than another
-refinement pass — remaining issues are implementation-level."
+- **First pass on this artifact:** Run the full procedure. Do not skip.
+- **Subsequent pass on the same artifact:** Assess — has it changed structurally
+  since the last pass? If only details changed (field names, wording, minor
+  additions), a full pass is unlikely to find structural problems. Say so:
+  "This artifact has been through N passes. The structure hasn't changed since
+  pass M. I'd recommend building rather than another refinement pass."
+
+The identification must be explicit. "The session has had many bildhauer passes"
+is not the same as "this specific proposal has been through a pass." A long
+session with many different artifacts does not mean any individual artifact is
+stable. Each artifact has its own pass count starting from zero.
 
 The exception: new information arrived (investigation results, changed constraints,
 significant new content) that could invalidate prior structural conclusions. In
 that case, re-run the affected checkpoints on the changed parts, not the full
 procedure on everything.
 
-Evidence: repeated refinement passes on the same artifact show diminishing
-structural findings. Recognizing stabilization avoids overworking.
+Evidence: in a real session, the diminishing returns check misfired — it
+concluded "structure has stabilized" on a brand-new proposal because the session
+had run many bildhauer passes on OTHER artifacts. The check produced the right
+words ("I'd recommend building") without the actual evaluation. This is
+observation 17 (structured output suppresses step-backs) applied to bildhauer's
+own mechanism. The fix: force explicit artifact identification before the
+diminishing returns assessment can fire.

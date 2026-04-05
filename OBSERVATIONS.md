@@ -308,3 +308,18 @@ The AI does not naturally recognize this transition. It runs the full procedure 
 Signal: if a pass finds only detail-level issues on content that was already structurally validated in a prior pass, the bozzetto is refined enough. Say so rather than running another full pass. The exception: if significant new information arrived (an investigation result, a changed constraint, new content added) that could invalidate prior conclusions — then re-run on the affected parts, not the whole thing.
 
 This connects to the vision's "When the Bozzetto is refined enough, the sculptor commits to the marble" — but makes the recognition of "refined enough" an explicit skill rather than an assumed judgment.
+
+**Failure mode: session-level conflation.** In the same session where
+observation 22 was first documented, the diminishing returns check
+misfired on a brand-new proposal. The AI concluded "structure has
+stabilized" because the session had run many bildhauer passes — but those
+passes were on DIFFERENT artifacts. The new proposal had zero prior passes.
+The check produced the right words without the actual evaluation. This is
+observation 17 (structured output suppresses step-backs) applied to
+bildhauer's own mechanism — the diminishing returns output format
+("I'd recommend building") substituted for the substance (verifying
+whether this specific artifact had actually been through passes).
+
+Fix: the procedure now requires explicit artifact identification before
+the diminishing returns assessment can fire. "This session has had many
+passes" is not "this artifact has been through passes."
