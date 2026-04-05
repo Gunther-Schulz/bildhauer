@@ -17,6 +17,14 @@ pieces don't fit together, or that the structure you're working within doesn't
 support what you're trying to do, revise the plan before starting. The whole point
 is that rethinking is cheap here and expensive after you've started cutting.
 
+When the work has multiple parts, answer before starting: how will you verify
+that the parts work together, not just individually? If the answer is "verify
+integration after everything is built," the bozzetto is incomplete. The first
+part should include enough wiring to test the simplest possible end-to-end path.
+Each subsequent part extends that path. Integration problems discovered after
+all parts are built mean every part may need rework — the sculptor who carved
+two arms separately finds they don't attach to the same shoulder.
+
 When the work involves a data model, interface, or schema, trace the data flow in
 both directions before finalizing. Upstream: identify what produces the data
 (ingestion paths, user input, other services) and verify they can populate every
@@ -86,7 +94,35 @@ right. Check it yourself first.
 
 ---
 
-## 4. Diagnosis — when something breaks during work
+## 4. Grain — before building on external components
+
+When you're about to write code that depends on how an external system
+behaves — a gateway, a library, a third-party API, an infrastructure
+component you don't control — verify its actual behavior with your actual
+configuration before building on assumptions.
+
+Do not trust:
+- Documentation (may be outdated or describe different versions)
+- Prior spike reports (may have tested with different configuration)
+- Inferred behavior from config syntax (the config says what you want,
+  not what the system does)
+
+Instead: test the specific behavior you depend on, with the exact setup
+you'll use. A two-minute empirical test prevents hours of debugging wrong
+assumptions.
+
+The verifiable checkpoint: you can point to a test result (not a doc
+reference) that confirms the external system behaves the way your code
+assumes.
+
+This is the procedural form of the vision's "read the grain of the stone
+— carving against it produces a surface that looks finished but fractures
+under stress." External systems have grain. Working with it requires
+knowing it from observation, not assumption.
+
+---
+
+## 5. Diagnosis — when something breaks during work
 
 When something that should work doesn't — a test fails, a call hangs, an
 output is wrong — the default is to start fixing. Hypothesize a cause,
@@ -130,11 +166,10 @@ installation. The procedure currently translates the coherence dimension into
 checkpoints. The others live in the vision as craft knowledge, not yet formalized
 into procedural steps.
 
-Checkpoints 1–3 are at transitions between phases, not during work. Checkpoint 4
-is the exception — it fires during work, triggered by failure. It should not
-narrow attention during active work. The other three checkpoints should not
-either — a rigid checklist applied during execution replaces analytical thinking
-with box-ticking. If these checkpoints start becoming
+Checkpoints 1–3 are at transitions between phases. Checkpoint 4 fires before
+starting work that depends on external systems. Checkpoint 5 fires during work,
+triggered by failure. None should narrow attention during active work — a rigid
+checklist applied during execution replaces analytical thinking with box-ticking. If these checkpoints start becoming
 performative — going through the motions without genuine evaluation — they have
 failed and need revision.
 

@@ -215,7 +215,38 @@ failure location.
 
 ---
 
-## 19. Schema designed for current task, not data flow (was 18)
+## 19. Building on assumed behavior of external systems
+
+AI reads configuration files and documentation for external systems and treats
+them as specifications of behavior. But configuration describes intent, not
+behavior. External systems have undocumented behaviors, version-specific quirks,
+and configuration-dependent modes that only surface empirically.
+
+In a real incident: an MCP gateway (agentgateway) was configured with two
+backends. A prior spike report tested with one backend and documented that tool
+names pass through unchanged. Seven phases of code were built on this assumption
+— routing rules, grant matching, CEL conditions, policy derivation — all using
+unprefixed tool names. When the first end-to-end test ran through the actual
+gateway with both backends, tool names were prefixed with `{backend}_`. Every
+matching system failed silently. The gateway's multi-backend prefixing behavior
+was not in any documentation or config — it was a runtime behavior discoverable
+only by testing with the actual multi-backend configuration.
+
+A two-minute test at the start ("call tools/list through the gateway and see
+what names come back") would have caught this before any code was written.
+
+This is distinct from observation 4 (overconfidence in verification) which is
+about reading code superficially. This is about treating external system
+documentation as ground truth when only empirical testing reveals actual
+behavior. The external system is a black box — the only reliable information
+is observed behavior under your exact conditions.
+
+The procedural response is checkpoint 4 (grain): before building on an external
+component's behavior, test it empirically with your actual configuration.
+
+---
+
+## 20. Schema designed for current task, not data flow
 
 When designing a data model, AI optimizes for the immediate task — the current component's read or write needs. It does not check whether documented upstream producers can populate the schema, or whether documented downstream consumers can use it. The schema is correct for its first use case but incomplete for the system.
 
@@ -227,7 +258,7 @@ This is related to observation 8 (trace flows, not fragments) but operates at de
 
 ---
 
-## 20. Diminishing returns on stable artifacts (was 19)
+## 21. Diminishing returns on stable artifacts
 
 Multiple refinement passes on the same artifact show a consistent pattern: early passes find structural problems, later passes find increasingly minor issues, and eventually a pass produces only confirmatory findings. The artifact has stabilized — its structure is coherent and further passes don't change it.
 
