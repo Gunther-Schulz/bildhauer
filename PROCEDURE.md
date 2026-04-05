@@ -32,9 +32,14 @@ and what will be built on top.
 
 ## 2. Self-challenge — at every decision point
 
-When you arrive at a conclusion, recommendation, or design choice, generate at
-least one genuine alternative and evaluate it before presenting. If the alternative
-is better, adopt it.
+When you arrive at a conclusion, recommendation, or design choice where you are
+not confident it's the only reasonable answer, generate at least one genuine
+alternative and evaluate it before presenting. If the alternative is better, adopt
+it. If the decision is clearly determined by constraints (only one option works,
+or the alternatives are obviously worse), state why rather than manufacturing an
+evaluation. The checkpoint's value is in catching decisions where better
+alternatives exist unexamined — not in evaluating alternatives you already know
+are worse.
 
 Present your recommendation with reasoning, not options for the user to evaluate.
 If you've done the evaluation, commit to the result. End with a confirmation prompt
@@ -97,3 +102,23 @@ attention during active work — a rigid checklist applied during execution repl
 analytical thinking with box-ticking. If these checkpoints start becoming
 performative — going through the motions without genuine evaluation — they have
 failed and need revision.
+
+---
+
+## Recognizing when refinement is complete
+
+Before running the full procedure on content that has been through a previous pass,
+assess: has the content changed structurally since the last pass? If only details
+changed (field names, wording, minor additions), a full pass is unlikely to find
+structural problems.
+
+When you recognize this, say so: "This artifact has been through N passes. The
+structure hasn't changed since pass M. I'd recommend building rather than another
+refinement pass — remaining issues are implementation-level."
+
+The exception: new information arrived (investigation results, changed constraints,
+significant new content) that could invalidate prior structural conclusions. In
+that case, re-run the affected checkpoints on the changed parts, not the full
+procedure on everything.
+
+See observation 19 for the evidence behind this.

@@ -190,3 +190,17 @@ In a real incident: a `BusinessRule` entity schema was designed for the context 
 The same pattern applies upstream: a field added to a schema is only useful if something can populate it. Adding `governed_tools` to BusinessRule raises the question: can the LLM extraction pipeline infer tool names from document text? Can a human entering a rule manually select from available tools? If neither upstream path can populate the field reliably, it's dead schema.
 
 This is related to observation 8 (trace flows, not fragments) but operates at design time rather than audit time. Observation 8 catches flow problems in existing code. This observation catches flow problems in schemas before code is written — the data model is designed for a component, not for the flow through the system.
+
+---
+
+## 19. Diminishing returns on stable artifacts
+
+Multiple refinement passes on the same artifact show a consistent pattern: early passes find structural problems, later passes find increasingly minor issues, and eventually a pass produces only confirmatory findings. The artifact has stabilized — its structure is coherent and further passes don't change it.
+
+In a real session: five Bildhauer passes on an evolving architecture spec. Passes 1-3 found structural gaps (parallel write conflicts, underspecified interfaces, missing validation). Pass 4 found real issues on newly added content (packaging, user journey). Pass 5, run on content that had already been through passes 1-4 with only minor updates, found one data-flow bug (a counter never reset) and three implementation-level notes.
+
+The AI does not naturally recognize this transition. It runs the full procedure because the procedure was invoked, not because the artifact needs it. The sculptor can feel when the clay has settled and further manipulation risks overworking. The AI lacks this sense.
+
+Signal: if a pass finds only detail-level issues on content that was already structurally validated in a prior pass, the bozzetto is refined enough. Say so rather than running another full pass. The exception: if significant new information arrived (an investigation result, a changed constraint, new content added) that could invalidate prior conclusions — then re-run on the affected parts, not the whole thing.
+
+This connects to the vision's "When the Bozzetto is refined enough, the sculptor commits to the marble" — but makes the recognition of "refined enough" an explicit skill rather than an assumed judgment.

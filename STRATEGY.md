@@ -52,6 +52,8 @@ These are observations from experience, not prescriptions. They describe practic
 
 **Challenge before building.** When presented with an approach or design direction, state at least one concern, limitation, or alternative before building on it. Reasonable-sounding proposals are where unchallenged assumptions do the most damage. This connects to the vision's "check the vision at transitions" but applies at every decision point, not just phase transitions.
 
+**Data-flow tracing is the most reliable finding mechanism.** In every pass across a real multi-pass session, tracing "what writes this data and what reads it" found real problems — parallel write conflicts, missing resets, underspecified interfaces, format mismatches. Fragment-level review (looking at one component) consistently missed what flow-level tracing found. This reinforces observation 8 but elevates it: data-flow tracing isn't just a technique that works, it's the single most productive element of the bozzetto.
+
 ---
 
 ## Open Questions
