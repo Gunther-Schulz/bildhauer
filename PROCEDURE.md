@@ -133,16 +133,15 @@ where you think it is?
 Before writing any fix, isolate the failure:
 
 1. **Locate the boundary.** Every failure occurs at an interface between
-   two things — the app and the test, the service and the database, the
-   gateway and the backend. Identify which boundary.
+   two things — the caller and the callee, the test and the code, the
+   producer and the consumer. Identify which boundary.
 2. **Test each side independently.** If a test fails, does the same
-   operation work when called manually? If a service call hangs, does
-   the service respond to a direct request? The side that works is not
-   the problem.
-3. **Name the specific failure** before writing code. "The bash variable
-   `$session_header` expands to empty because it's unquoted" is a
-   diagnosis. "The MCP session might be corrupted after a denied call"
-   is a hypothesis. Do not write fixes for hypotheses.
+   operation work when invoked directly? If a function returns wrong
+   data, is the input correct? The side that works is not the problem.
+3. **Name the specific failure** before writing code. "The variable
+   expands to empty because it's unquoted" is a diagnosis. "The session
+   might be corrupted" is a hypothesis. Do not write fixes for
+   hypotheses.
 
 The verifiable checkpoint: you can point to the exact component and line
 where the failure occurs, and you can reproduce it in isolation, before
@@ -162,16 +161,16 @@ like — VISION.md covers that. They are interrupts at moments where the default
 behavior (plan linearly, go with first answer, move on without checking) produces
 worse results than pausing. The vision describes the sculptor's full responsibility
 — coherence, grain, structural reinforcement, proportion, repairability,
-installation. The procedure currently translates the coherence dimension into
-checkpoints. The others live in the vision as craft knowledge, not yet formalized
-into procedural steps.
+installation. The procedure translates coherence and grain into checkpoints. The
+remaining dimensions live in the vision as craft knowledge, formalized into
+procedural steps when real incidents justify them.
 
 Checkpoints 1–3 are at transitions between phases. Checkpoint 4 fires before
 starting work that depends on external systems. Checkpoint 5 fires during work,
 triggered by failure. None should narrow attention during active work — a rigid
-checklist applied during execution replaces analytical thinking with box-ticking. If these checkpoints start becoming
-performative — going through the motions without genuine evaluation — they have
-failed and need revision.
+checklist applied during execution replaces analytical thinking with box-ticking.
+If these checkpoints start becoming performative — going through the motions
+without genuine evaluation — they have failed and need revision.
 
 ---
 
