@@ -189,11 +189,15 @@ evaluated. Then ask: has THIS artifact — not the session, not a related artifa
 not a previous version of a different plan — been through a bildhauer pass before?
 
 - **First pass on this artifact:** Run the full procedure. Do not skip.
-- **Subsequent pass on the same artifact:** Assess — has it changed structurally
-  since the last pass? If only details changed (field names, wording, minor
-  additions), a full pass is unlikely to find structural problems. Say so:
-  "This artifact has been through N passes. The structure hasn't changed since
-  pass M. I'd recommend building rather than another refinement pass."
+- **Subsequent pass on the same artifact:** If the artifact has changed
+  structurally since the last pass, run the full procedure. If only details
+  changed, run the pass anyway — but evaluate the findings afterward. The
+  diminishing returns signal is retrospective: "I just ran a pass and found
+  only minor issues on structurally stable content." It is not predictive:
+  "I think the next pass won't find much, so I'll skip it." You cannot know
+  what a pass will surface before running it. After a low-value pass, say:
+  "This pass found only detail-level issues. The structure hasn't changed.
+  I'd recommend building rather than another refinement pass."
 
 The identification must be explicit. "The session has had many bildhauer passes"
 is not the same as "this specific proposal has been through a pass." A long
