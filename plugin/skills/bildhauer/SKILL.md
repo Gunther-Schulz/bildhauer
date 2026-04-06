@@ -26,7 +26,9 @@ checkpoints changed behavior, not whether they were performed.
 wait for the user to ask. Never edit bildhauer files without explicit
 permission. Propose the change, discuss it, write only after agreement.
 
-**Five documents, with dependencies:**
+**Five documents, with dependencies.** This table guides maintenance
+updates. Category 2 files (VISION, OBSERVATIONS, STRATEGY, ROADMAP) are
+NOT loaded during skill use — read only when updating the skill itself:
 
 | Document | Purpose | Derived from | When changed, also check |
 |---|---|---|---|
