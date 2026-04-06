@@ -40,15 +40,13 @@ NOT loaded during skill use — read only when updating the skill itself:
 |---|---|---|---|
 | `VISION.md` | The philosophy of good craftsmanship — what quality means and when each dimension is attended to | First principles | `PROCEDURE.md` (checkpoints are derived from vision principles) |
 | `PROCEDURE.md` | Actionable checkpoints — applies to code, design, analysis, and discussion | `VISION.md` | Nothing — it's a leaf |
-| `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | `STRATEGY.md` (observations inform strategic direction) |
-| `STRATEGY.md` | The problem being solved, what works, and open design questions for the protocol | `OBSERVATIONS.md` + `VISION.md` | Nothing — it's a leaf |
+| `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | Nothing — it's a leaf |
 | `ROADMAP.md` | Concrete work items for improving the framework, grounded in observed failures | `OBSERVATIONS.md` + adherence audits | Nothing — it's a leaf |
 
 When proposing updates:
 - Procedural checkpoint change → `PROCEDURE.md`
 - Insight about the analogy itself → `VISION.md`
 - New shortcoming or technique observed → `OBSERVATIONS.md`
-- Strategic learning about the approach → `STRATEGY.md`
 - Concrete improvement work item → `ROADMAP.md`
 
 **Maintenance rule:** When updating a parent doc, re-read its dependents
