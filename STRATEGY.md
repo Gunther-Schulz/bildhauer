@@ -42,7 +42,7 @@ These are observations from experience, not prescriptions. They describe practic
 
 **Evidence over assumption.** When checking whether a pattern exists, whether code behaves a certain way, or whether a design decision holds — read the actual code. Search results show where to look, not what's there. Claims without evidence are the AI's overconfidence at work.
 
-**Tracing over fragment-checking.** Don't evaluate code in isolation. Follow data from where it's produced to where it's consumed. Follow config from where it's loaded to where it's used. When reviewing an output, ask what the consumer actually needs. Most design-level issues are invisible at the fragment level and obvious when you trace the flow.
+**Tracing over fragment-checking.** Don't evaluate code in isolation. Follow data from where it's produced to where it's consumed. Follow config from where it's loaded to where it's used. When reviewing an output, ask what the consumer actually needs. Most design-level issues are invisible at the fragment level and obvious when tracing the flow.
 
 **Investigation before implementation.** Decisions made during active code generation are ad-hoc — driven by what's in context at that token position, not by deliberate comparison with the existing codebase. Moving decisions into a prior investigation pass — where the AI reads reference implementations and documents which patterns to follow — produces more coherent results.
 

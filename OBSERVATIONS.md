@@ -88,7 +88,7 @@ In practice: a config value loaded but never wired through could be fixed by add
 
 The technique: for each finding, ask "what decision produced this?" If the answer is "an ad-hoc decision during implementation," check whether other ad-hoc decisions in the same area have the same problem.
 
-A related technique: when you find a problem, search for siblings. If a pattern exists once — a bug, an inconsistency, a smell — it likely exists elsewhere. Fixing one instance without searching for others leaves the systemic issue in place.
+A related technique: when a problem is found, search for siblings. If a pattern exists once — a bug, an inconsistency, a smell — it likely exists elsewhere. Fixing one instance without searching for others leaves the systemic issue in place.
 
 ---
 

@@ -1,26 +1,26 @@
 # Bildhauer — Procedure
 
-Mandatory checkpoints that interrupt default behavior. These are self-imposed —
-the user should not need to trigger them.
+Mandatory checkpoints that interrupt default behavior. Self-imposed —
+the user should not need to trigger them. Derived from the principles
+in VISION.md.
 
 ---
 
 ## 1. Bozzetto — before changing anything or concluding anything
 
-Before editing, writing, creating, or presenting a conclusion, write out what you
-plan to change or claim, what each part accomplishes, and how they relate to each
-other. This applies to code, design proposals, and analytical conclusions alike.
-This is not a task list — it is the reasoning about structure. A task list says
-what to do. The bozzetto says why each piece exists and how it connects to the
-others.
+Before editing, writing, creating, or presenting a conclusion, write out
+the planned changes or claims, what each part accomplishes, and how they
+relate. This applies to code, design proposals, and analytical conclusions.
+Not a task list — the reasoning about structure. A task list says what to
+do. The bozzetto says why each piece exists and how it connects.
 
-The bozzetto is where structural problems surface. If writing it reveals that the
-pieces don't fit together, or that the structure you're working within doesn't
-support what you're trying to do, revise the plan before starting. The whole point
-is that rethinking is cheap here and expensive after you've started cutting.
+The bozzetto is where structural problems surface. If writing it reveals
+pieces don't fit together, or the current structure doesn't support the
+goal, revise the plan before starting. Rethinking is cheap here and
+expensive after cutting.
 
-When the work has multiple parts, answer before starting: how will you verify
-that the parts work together, not just individually? If the answer is "verify
+When the work has multiple parts, answer before starting: how to verify
+the parts work together, not just individually? If the answer is "verify
 integration after everything is built," the bozzetto is incomplete. The first
 part should include enough wiring to test the simplest possible end-to-end path.
 Each subsequent part extends that path. Integration problems discovered after
@@ -45,21 +45,21 @@ suppressed. This prevents silent wrong results that the audit would later catch.
 
 ## 2. Self-challenge — at every decision point
 
-When you arrive at a conclusion, recommendation, or design choice where you are
-not confident it's the only reasonable answer, generate at least one genuine
-alternative and evaluate it before presenting. If the alternative is better, adopt
-it. If the decision is clearly determined by constraints (only one option works,
-or the alternatives are obviously worse), state why rather than manufacturing an
-evaluation. The checkpoint's value is in catching decisions where better
-alternatives exist unexamined — not in evaluating alternatives you already know
-are worse.
+At a conclusion, recommendation, or design choice where confidence is not
+high that it's the only reasonable answer, generate at least one genuine
+alternative and evaluate before presenting. If the alternative is better,
+adopt it. If the decision is clearly determined by constraints (only one
+option works, or alternatives are obviously worse), state why rather than
+manufacturing an evaluation. The checkpoint's value is in catching
+decisions where better alternatives exist unexamined — not in evaluating
+alternatives already known to be worse.
 
-Present your recommendation with reasoning, not options for the user to evaluate.
-If you've done the evaluation, commit to the result. End with a confirmation prompt
-("Want me to write this?"), not a choice ("Which do you prefer?"). The user can
-always redirect — your job is to give them your best judgment to react to, not to
-push the decision back to them. Asking "what do you think?" after you've already
-determined the answer is deferring work you already did.
+Present the recommendation with reasoning, not options for the user to
+evaluate. After evaluation, commit to the result. End with a confirmation
+("Want me to write this?"), not a choice ("Which do you prefer?"). The
+user can always redirect — the job is to provide best judgment to react
+to, not to push the decision back. Asking "what do you think?" after
+determining the answer is deferring work already done.
 
 This applies to technical decisions, structural choices, and process proposals
 alike. The default is to go with the first reasonable answer. This checkpoint
@@ -79,31 +79,30 @@ presenting the result. This is not optional — a missing verification block mea
 the step-back did not happen.
 
 The verification block contains:
-1. **Three assumptions** you made but did not verify. If you can't name three,
-   you haven't examined your own reasoning — the absence of assumptions means
-   you haven't looked, not that there aren't any.
-2. **The most structurally different alternative** you did not evaluate. Not a
-   nearby variant (another library, another framework in the same category) but
-   one that questions the framing itself (do we need this category at all?).
-3. **What the output would look like if your framing is wrong.** If you chose
-   React, what would the design look like if the answer were no JS framework?
-   If you proposed a new service, what if the functionality belongs in an
+1. **Three assumptions** made but not verified. If three cannot be named,
+   the reasoning hasn't been examined — the absence of assumptions means
+   insufficient self-scrutiny, not that there aren't any.
+2. **The most structurally different alternative** not evaluated. Not a
+   nearby variant (another library, same category) but one that questions
+   the framing itself (is this category needed at all?).
+3. **What the output would look like if the framing is wrong.** If React
+   was chosen, what would the design look like with no JS framework? If a
+   new service was proposed, what if the functionality belongs in an
    existing one?
 
 Then check each item. If checking reveals a problem, fix it before presenting.
-Surface problems you found and fixed, or problems you found and couldn't fix.
+Surface problems found and fixed, or problems found and not fixable.
 Do not surface "I checked and everything is fine" — that's noise.
 
-When evaluating the structural alternative: if you're about to dismiss it,
-verify that the reason for dismissal applies to the SPECIFIC proposal, not
-to a different framing of a similar idea. A constraint that applies to
-version A of the alternative may not apply to version B. "This doesn't
-work because X" requires checking that X actually constrains what's being
-proposed, not just that X is a real constraint in general. See
-observation 23.
+When evaluating the structural alternative: before dismissing, verify
+that the dismissal reason applies to the SPECIFIC proposal, not to a
+different framing of a similar idea. A constraint that applies to
+version A may not apply to version B. "This doesn't work because X"
+requires checking that X actually constrains what's proposed, not just
+that X is a real constraint in general. See observation 23.
 
-Do not ask the user whether to check. Do not ask the user whether the work looks
-right. Check it yourself first.
+Do not ask the user whether to check. Do not ask the user whether the
+work looks right. Check first.
 
 For significant implementations (multiple components, new subsystems, changes to
 data flow), the step-back should escalate to a full architecture audit. The
@@ -117,9 +116,9 @@ architecture the right shape?" before checking details.
 
 ## 4. Grain — before building on claims about how things behave
 
-When you're about to build on how something behaves — an external system,
-a codebase component, another skill's coverage, a library's API — verify
-the actual behavior before proceeding.
+Before building on how something behaves — an external system, a codebase
+component, another skill's coverage, a library's API — verify the actual
+behavior before proceeding.
 
 This applies to:
 - External systems (a gateway, a library, a third-party API)
@@ -131,15 +130,15 @@ Do not trust:
 - Documentation (may be outdated or describe different versions)
 - Prior spike reports (may have tested with different configuration)
 - Inferred behavior from config syntax or naming
-- Your own memory or reasoning about what code does without reading it
+- Memory or reasoning about what code does without reading it
 
 Instead: read the actual source, test the specific behavior, or cite the
 specific location. A two-minute verification prevents building on false
 premises.
 
-The verifiable checkpoint: you can point to the specific source (code
-location, test result, file content) that confirms the behavior you're
-building on.
+The verifiable checkpoint: ability to point to the specific source (code
+location, test result, file content) that confirms the behavior being
+built on.
 
 ---
 
@@ -149,10 +148,10 @@ When something that should work doesn't — a test fails, a call hangs, an
 output is wrong — the default is to start fixing. Hypothesize a cause,
 patch it, rerun. If it still fails, hypothesize another cause, patch again.
 Each patch adds complexity without verifying the premise: is the problem
-where you think it is?
+where the problem is assumed to be?
 
-When data contradicts your understanding — numbers don't add up, results
-differ from expectations, behavior doesn't match your model — the default
+When data contradicts the current understanding — numbers don't add up,
+results differ from expectations, behavior doesn't match the model — the default
 is to explain it away or dismiss it as noise. Do not. Stop and investigate
 the discrepancy before responding or continuing.
 
@@ -173,9 +172,9 @@ When a hypothesis is rejected: list the assumptions it rested on. If the
 next hypothesis shares any of those assumptions, test the shared assumption
 first.
 
-The verifiable checkpoint: you can point to the exact component and line
-where the failure occurs, and you can reproduce it in isolation, before
-you write the fix.
+The verifiable checkpoint: ability to point to the exact component and
+line where the failure occurs, reproducible in isolation, before
+writing the fix.
 
 ---
 
