@@ -22,9 +22,15 @@ did it fire? Did it produce a different outcome than the default, or was
 it performative? Rate impact honestly — the question is whether
 checkpoints changed behavior, not whether they were performed.
 
-**Propose updates to the bildhauer repo** based on observed gaps — do not
-wait for the user to ask. Never edit bildhauer files without explicit
-permission. Propose the change, discuss it, write only after agreement.
+**When a gap is noticed during use** — a checkpoint that should have
+fired but didn't, a failure the procedure doesn't cover, a pattern worth
+capturing — persist it:
+
+1. Write the observation to the improvement journal (OBSERVATIONS.md)
+2. Assess if PROCEDURE.md needs updating based on the observation
+3. Propose the change with reasoning. Do not change without permission.
+
+Do not wait for the user to ask. Surface gaps proactively.
 
 **Five documents, with dependencies.** This table guides maintenance
 updates. Category 2 files (VISION, OBSERVATIONS, STRATEGY, ROADMAP) are
