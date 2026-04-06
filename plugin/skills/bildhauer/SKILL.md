@@ -1,6 +1,6 @@
 ---
 name: bildhauer
-description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit adherence", or asks to evaluate whether the current approach is right before continuing. Also use when starting a significant implementation task, to establish the coarse-to-fine mindset.
+description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit adherence", or asks to evaluate whether the current approach is right before continuing. Also use when starting significant work — implementation, design, analysis, or investigation — to establish the coarse-to-fine mindset. Applies to code, discussions, proposals, and analytical conclusions alike.
 version: 0.4.0
 license: MIT
 ---
@@ -15,10 +15,11 @@ Read `PROCEDURE.md` from the bildhauer repository. Follow it.
 
 This framework is itself a work in progress. It improves through use, not through theory.
 
-**After completing a significant piece of work**, actively reflect on the process:
+**After completing a significant piece of work or discussion**, actively reflect on the process:
 - Did you follow the checkpoints, or skip them?
 - Did the checkpoints catch a real problem, or were they performative?
 - Did the user have to prompt a step-back or self-challenge that you should have done yourself?
+- Did you make claims without verifying them? (checkpoint 4 applies to discussions too)
 - Did you discover something worth capturing?
 
 **When the user asks to audit adherence**, compare actual behavior against PROCEDURE.md checkpoints. For each checkpoint, identify specific moments in the conversation where it should have fired. For each moment, assess: did it fire? If it fired, did it produce a different outcome than the default would have, or was it performative? Rate overall impact honestly — the question is whether the checkpoints changed behavior, not whether they were performed.
@@ -30,7 +31,7 @@ This framework is itself a work in progress. It improves through use, not throug
 | Document | Purpose | Derived from | When changed, also check |
 |---|---|---|---|
 | `VISION.md` | The philosophy of good craftsmanship — what quality means and when each dimension is attended to | First principles | `PROCEDURE.md` (checkpoints are derived from vision principles) |
-| `PROCEDURE.md` | Actionable steps translating the philosophy into practice for technical work | `VISION.md` | Nothing — it's a leaf |
+| `PROCEDURE.md` | Actionable checkpoints — applies to code, design, analysis, and discussion | `VISION.md` | Nothing — it's a leaf |
 | `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | `STRATEGY.md` (observations inform strategic direction) |
 | `STRATEGY.md` | The problem being solved, what works, and open design questions for the protocol | `OBSERVATIONS.md` + `VISION.md` | Nothing — it's a leaf |
 | `ROADMAP.md` | Concrete work items for improving the framework, grounded in observed failures | `OBSERVATIONS.md` + adherence audits | Nothing — it's a leaf |
