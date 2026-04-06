@@ -323,3 +323,40 @@ whether this specific artifact had actually been through passes).
 Fix: the procedure now requires explicit artifact identification before
 the diminishing returns assessment can fire. "This session has had many
 passes" is not "this artifact has been through passes."
+
+---
+
+## 23. Alternatives dismissed by wrong constraints
+
+When the step-back generates a structural alternative, the evaluation
+can reject it for a reason that doesn't actually apply. The alternative
+is right; the argument against it is wrong. The structured format of
+the evaluation ("Alternative: X. Evaluation: doesn't work because Y.
+Not adopting.") makes the dismissal look thorough even when the reasoning
+is flawed.
+
+In a real incident: the step-back proposed "layer on top" as an
+alternative to merging two tools into one. The evaluation dismissed it:
+"Claude Code plugins can't declare dependencies on other plugins, so a
+layer above can't require the tool below." This reasoning was correct
+for cross-plugin dependencies — but the proposal was for two skills
+WITHIN the same plugin, where one calls the other. The constraint
+("no dependency mechanism") didn't apply to the actual proposal. The
+alternative was dismissed, and the user had to surface it manually.
+
+The pattern: the AI generates a valid alternative, then evaluates it
+against a constraint that applies to a DIFFERENT framing of the same
+idea. The constraint is real (cross-plugin dependencies don't exist) but
+irrelevant (both skills are in one plugin). The evaluation looks correct
+because the constraint is real. The dismissal is wrong because the
+constraint doesn't apply.
+
+This is observation 3 (unvalidated hypotheses treated as conclusions)
+applied to evaluations rather than hypotheses. The evaluation uses a
+real constraint without verifying it applies to the specific proposal
+being evaluated.
+
+Related to observation 17 (structured output suppresses step-backs):
+the structured evaluation format ("Alternative: X. Evaluation: Y.
+Not adopting.") creates the appearance of thoroughness that prevents
+further scrutiny.

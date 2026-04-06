@@ -94,6 +94,14 @@ Then check each item. If checking reveals a problem, fix it before presenting.
 Surface problems you found and fixed, or problems you found and couldn't fix.
 Do not surface "I checked and everything is fine" — that's noise.
 
+When evaluating the structural alternative: if you're about to dismiss it,
+verify that the reason for dismissal applies to the SPECIFIC proposal, not
+to a different framing of a similar idea. A constraint that applies to
+version A of the alternative may not apply to version B. "This doesn't
+work because X" requires checking that X actually constrains what's being
+proposed, not just that X is a real constraint in general. See
+observation 23.
+
 Do not ask the user whether to check. Do not ask the user whether the work looks
 right. Check it yourself first.
 
