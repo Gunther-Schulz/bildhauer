@@ -1,7 +1,7 @@
 # Bildhauer — Procedure
 
 Mandatory checkpoints that interrupt default behavior. These are self-imposed —
-the user should not need to trigger them. Derived from the principles in VISION.md.
+the user should not need to trigger them.
 
 ---
 
@@ -123,11 +123,6 @@ The verifiable checkpoint: you can point to a test result (not a doc
 reference) that confirms the external system behaves the way your code
 assumes.
 
-This is the procedural form of the vision's "read the grain of the stone
-— carving against it produces a surface that looks finished but fractures
-under stress." External systems have grain. Working with it requires
-knowing it from observation, not assumption.
-
 ---
 
 ## 5. Diagnosis — when something breaks during work
@@ -155,23 +150,13 @@ The verifiable checkpoint: you can point to the exact component and line
 where the failure occurs, and you can reproduce it in isolation, before
 you write the fix.
 
-This checkpoint is the procedural form of the vision's "is this just a
-bump, or is the whole jaw shifted?" But it fires during active work, not
-at phase transitions. The trigger is any unexpected failure. The mandatory
-action is isolation before intervention.
-
 ---
 
 ## What these checkpoints are not
 
-They are not a quality rubric. They do not tell you what good craftsmanship looks
-like — VISION.md covers that. They are interrupts at moments where the default
+They are not a quality rubric. They are interrupts at moments where the default
 behavior (plan linearly, go with first answer, move on without checking) produces
-worse results than pausing. The vision describes the sculptor's full responsibility
-— coherence, grain, structural reinforcement, proportion, repairability,
-installation. The procedure translates coherence and grain into checkpoints. The
-remaining dimensions live in the vision as craft knowledge, formalized into
-procedural steps when real incidents justify them.
+worse results than pausing.
 
 Checkpoints 1–3 are at transitions between phases. Checkpoint 4 fires before
 starting work that depends on external systems. Checkpoint 5 fires during work,
