@@ -5,12 +5,14 @@ the user should not need to trigger them.
 
 ---
 
-## 1. Bozzetto — before changing anything
+## 1. Bozzetto — before changing anything or concluding anything
 
-Before editing, writing, or creating, write out what you plan to change, what each
-change accomplishes, and how the changes relate to each other. This is not a task
-list — it is the reasoning about structure. A task list says what to do. The
-bozzetto says why each piece exists and how it connects to the others.
+Before editing, writing, creating, or presenting a conclusion, write out what you
+plan to change or claim, what each part accomplishes, and how they relate to each
+other. This applies to code, design proposals, and analytical conclusions alike.
+This is not a task list — it is the reasoning about structure. A task list says
+what to do. The bozzetto says why each piece exists and how it connects to the
+others.
 
 The bozzetto is where structural problems surface. If writing it reveals that the
 pieces don't fit together, or that the structure you're working within doesn't
@@ -31,10 +33,13 @@ both directions before finalizing. Upstream: identify what produces the data
 field the schema requires. Downstream: identify what consumes the data (from the
 roadmap, design docs, or known dependencies) and verify the schema serves them. A
 schema field that no upstream path can populate is dead. A schema that doesn't
-serve a documented downstream consumer has a gap. This check extends the bozzetto's
-structural reasoning beyond the current task to the system's data flow — the
-sculptor considers not just the joint they're shaping but what was built below it
-and what will be built on top.
+serve a documented downstream consumer has a gap.
+
+When the work involves error handling, fallbacks, or default values, trace the
+fallback value through downstream consumers before writing it. If any consumer
+treats the fallback as valid data (passes it to a write, uses it in a
+computation, returns it to a caller), the error must be handled explicitly — not
+suppressed. This prevents silent wrong results that the audit would later catch.
 
 ---
 
@@ -102,30 +107,35 @@ architecture the right shape?" before checking details.
 
 ---
 
-## 4. Grain — before building on external components
+## 4. Grain — before building on claims about how things behave
 
-When you're about to write code that depends on how an external system
-behaves — a gateway, a library, a third-party API, an infrastructure
-component you don't control — verify its actual behavior with your actual
-configuration before building on assumptions.
+When you're about to build on how something behaves — an external system,
+a codebase component, another skill's coverage, a library's API — verify
+the actual behavior before proceeding.
+
+This applies to:
+- External systems (a gateway, a library, a third-party API)
+- Codebase claims ("module X already handles Y" — read module X)
+- Coverage claims ("skill Z covers this" — read skill Z and cite the rule)
+- Any factual assertion that downstream decisions depend on
 
 Do not trust:
 - Documentation (may be outdated or describe different versions)
 - Prior spike reports (may have tested with different configuration)
-- Inferred behavior from config syntax (the config says what you want,
-  not what the system does)
+- Inferred behavior from config syntax or naming
+- Your own memory or reasoning about what code does without reading it
 
-Instead: test the specific behavior you depend on, with the exact setup
-you'll use. A two-minute empirical test prevents hours of debugging wrong
-assumptions.
+Instead: read the actual source, test the specific behavior, or cite the
+specific location. A two-minute verification prevents building on false
+premises.
 
-The verifiable checkpoint: you can point to a test result (not a doc
-reference) that confirms the external system behaves the way your code
-assumes.
+The verifiable checkpoint: you can point to the specific source (code
+location, test result, file content) that confirms the behavior you're
+building on.
 
 ---
 
-## 5. Diagnosis — when something breaks during work
+## 5. Diagnosis — when something breaks or contradicts during work
 
 When something that should work doesn't — a test fails, a call hangs, an
 output is wrong — the default is to start fixing. Hypothesize a cause,
@@ -133,7 +143,12 @@ patch it, rerun. If it still fails, hypothesize another cause, patch again.
 Each patch adds complexity without verifying the premise: is the problem
 where you think it is?
 
-Before writing any fix, isolate the failure:
+When data contradicts your understanding — numbers don't add up, results
+differ from expectations, behavior doesn't match your model — the default
+is to explain it away or dismiss it as noise. Do not. Stop and investigate
+the discrepancy before responding or continuing.
+
+Before writing any fix or explanation, isolate the failure:
 
 1. **Locate the boundary.** Every failure occurs at an interface between
    two things — the caller and the callee, the test and the code, the
@@ -145,6 +160,10 @@ Before writing any fix, isolate the failure:
    expands to empty because it's unquoted" is a diagnosis. "The session
    might be corrupted" is a hypothesis. Do not write fixes for
    hypotheses.
+
+When a hypothesis is rejected: list the assumptions it rested on. If the
+next hypothesis shares any of those assumptions, test the shared assumption
+first.
 
 The verifiable checkpoint: you can point to the exact component and line
 where the failure occurs, and you can reproduce it in isolation, before
