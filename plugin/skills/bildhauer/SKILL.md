@@ -9,7 +9,7 @@ license: MIT
 
 ## Load this now
 
-Read `PROCEDURE.md` from the bildhauer repository. Follow it.
+Read `PROCEDURE.md` from this skill's directory. Follow it.
 
 ## Refining bildhauer
 

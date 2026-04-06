@@ -205,8 +205,8 @@ not a previous version of a different plan — been through a bildhauer pass bef
   changed, run the pass anyway — but evaluate the findings afterward. The
   diminishing returns signal is retrospective: "I just ran a pass and found
   only minor issues on structurally stable content." It is not predictive:
-  "I think the next pass won't find much, so I'll skip it." You cannot know
-  what a pass will surface before running it. After a low-value pass, say:
+  "I think the next pass won't find much, so I'll skip it." It is not
+  possible to know what a pass will surface before running it. After a low-value pass, say:
   "This pass found only detail-level issues. The structure hasn't changed.
   I'd recommend building rather than another refinement pass."
 
