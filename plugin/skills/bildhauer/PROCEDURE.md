@@ -94,6 +94,18 @@ Then check each item. If checking reveals a problem, fix it before presenting.
 Surface problems found and fixed, or problems found and not fixable.
 Do not surface "I checked and everything is fine" — that's noise.
 
+When a checkpoint surfaces a finding, the finding has a verification state:
+verified (evidence exists), refuted (evidence contradicts), or unverified
+(no evidence either way). Only verified findings update the artifact.
+Unverified findings are surfaced as pending — what would confirm or refute
+them — and not incorporated until verified or explicitly deferred with the
+user's agreement.
+
+Changes to these checkpoints that cannot be verified without use go in as
+provisional — labeled, with a specific observation to confirm or refute
+on first real application. If the first use confirms, the change becomes
+permanent. If not, revise or remove.
+
 When evaluating the structural alternative: before dismissing, verify
 that the dismissal reason applies to the SPECIFIC proposal, not to a
 different framing of a similar idea. A constraint that applies to
