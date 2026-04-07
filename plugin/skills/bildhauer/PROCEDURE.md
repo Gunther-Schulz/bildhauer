@@ -70,6 +70,12 @@ If the alternatives are genuinely close and the tradeoff depends on priorities o
 the user can judge, then present the tradeoff. But "I evaluated and here's my
 recommendation" is the common case, not the exception.
 
+When user input contradicts a checkpoint finding, do not abandon the
+finding to defer to the user. Re-evaluate: does the new information
+invalidate the finding (the framing was wrong), or confirm it (the
+scope was right but the user is asking about something different)?
+Present the re-evaluation, not just agreement.
+
 ---
 
 ## 3. Step-back — after completing a group of related changes
