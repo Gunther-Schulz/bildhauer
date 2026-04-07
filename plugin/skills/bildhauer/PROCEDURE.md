@@ -99,7 +99,10 @@ verified (evidence exists), refuted (evidence contradicts), or unverified
 (no evidence either way). Only verified findings update the artifact.
 Unverified findings are surfaced as pending — what would confirm or refute
 them — and not incorporated until verified or explicitly deferred with the
-user's agreement.
+user's agreement. For each pending finding, recommend whether to verify now
+or defer, based on cost of verification and whether the design depends on
+the answer. Surfacing without a verification recommendation stalls the
+procedure — the findings sit inert instead of driving the next action.
 
 Changes to these checkpoints that cannot be verified without use go in as
 provisional — labeled, with a specific observation to confirm or refute
