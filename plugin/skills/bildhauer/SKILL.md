@@ -39,7 +39,8 @@ NOT loaded during skill use — read only when updating the skill itself:
 | Document | Purpose | Derived from | When changed, also check |
 |---|---|---|---|
 | `VISION.md` | The philosophy of good craftsmanship — what quality means and when each dimension is attended to | First principles | `PROCEDURE.md` (checkpoints are derived from vision principles) |
-| `PROCEDURE.md` | Actionable checkpoints — applies to code, design, analysis, and discussion | `VISION.md` | Nothing — it's a leaf |
+| `PROCEDURE.md` | Actionable checkpoints — applies to code, design, analysis, and discussion | `VISION.md` | `references/patterns.md` (specialized patterns referenced from checkpoints) |
+| `references/patterns.md` | Specialized guidance for specific work types (data flow, error handling, verification states) | `PROCEDURE.md` + `OBSERVATIONS.md` | Nothing — it's a leaf |
 | `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | Nothing — it's a leaf |
 | `ROADMAP.md` | Concrete work items for improving the framework, grounded in observed failures | `OBSERVATIONS.md` + adherence audits | Nothing — it's a leaf |
 
