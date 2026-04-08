@@ -360,3 +360,50 @@ Related to observation 17 (structured output suppresses step-backs):
 the structured evaluation format ("Alternative: X. Evaluation: Y.
 Not adopting.") creates the appearance of thoroughness that prevents
 further scrutiny.
+
+---
+
+## 24. Self-challenge defaults to scope constraint, not correctness
+
+When evaluating 5 proposed code fixes for pipeline issues, the self-challenge
+checkpoint generated "do 1 now, defer 4" as the alternative. This is a scope
+constraint, not a genuine alternative — it doesn't evaluate whether the fixes
+are correct, only whether to do them now. The user immediately said "any real
+reason to defer? do them all." The checkpoint spent its energy on timing
+instead of verifying correctness.
+
+Investigation after bildhauer concluded revealed that 2 of the 5 fixes were
+redundant (one was already implemented in code, another was a duplicate of
+fix 1). The self-challenge should have caught this by evaluating *what* was
+proposed, not *when* to do it.
+
+The pattern: when presented with a list of actions, the default "alternative"
+is to do fewer of them. This feels like analysis but is actually the AI's
+tendency to narrow scope. Scope constraint is the path of least resistance —
+it doesn't require reading code or verifying claims.
+
+Fix: added "What to evaluate" paragraph to Checkpoint 2, explicitly stating
+that scope/timing decisions are not genuine alternatives.
+
+---
+
+## 25. Grain checkpoint didn't fire before recommendations
+
+Same incident as observation 24. Bildhauer was given a problem statement
+containing factual claims: "60s timeout didn't fire," "dedup has no fallback,"
+"context server needs Ollama for embeddings." It generated a recommendation
+list (5 fixes) without verifying any of these claims.
+
+Post-bildhauer investigation revealed: the timeout ran for 215s (not "didn't
+fire"), dedup already has a fallback (code at pipeline.go:390-399 catches
+errors and keeps all rules), and the proposed "dedup fallback" fix was
+already implemented. The recommendation list was built on false premises.
+
+The Grain checkpoint should have fired before recommendations were generated.
+It didn't because the recommendation list was already structured and felt
+"complete" — same pattern as observation 17 (structured output suppresses
+checkpoints).
+
+Fix: rewrote Checkpoint 4 as a gate with critical timing requirement —
+must fire before any recommendation is generated. Added checkpoint timing
+section between Checkpoints 3 and 4.

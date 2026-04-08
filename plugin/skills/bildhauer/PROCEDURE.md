@@ -54,6 +54,17 @@ manufacturing an evaluation. The checkpoint's value is in catching
 decisions where better alternatives exist unexamined — not in evaluating
 alternatives already known to be worse.
 
+**What to evaluate:** When recommending actions or fixes, evaluate them on
+their *merit and correctness*, not on scope or timing. Scope constraints
+("do this now, defer that") are not genuine alternatives — they are the
+default tendency to narrow scope dressed up as analysis. An alternative is
+genuine only if it would change *what to do*, not *when to do it*. If a
+recommendation is to apply 5 fixes, a genuine alternative is "apply 3
+different fixes instead" (different correctness), not "apply 1 fix now
+and defer 4" (same fixes, different timing). The latter is a constraint,
+not a decision. Present the former and evaluate both sets; defer the latter
+only with explicit justification ("can't do all at once because X").
+
 Present the recommendation with reasoning, not options for the user to
 evaluate. After evaluation, commit to the result. End with a confirmation
 ("Want me to write this?"), not a choice ("Which do you prefer?"). The
@@ -96,6 +107,14 @@ The verification block contains:
    new service was proposed, what if the functionality belongs in an
    existing one?
 
+**Verify factual claims in the work just completed:** When the work involved
+accepting claims about how code behaves (what a timeout does, whether a
+feature exists, what error handling does), review those claims before
+presenting. If the work was based on claimed behavior that hasn't been
+verified by reading the actual code, that verification is part of the
+step-back — not separate from it. A recommendation built on false claims
+about code behavior is not sound, regardless of how well the reasoning is.
+
 Then check each item. If checking reveals a problem, fix it before presenting.
 Surface problems found and fixed, or problems found and not fixable.
 Do not surface "I checked and everything is fine" — that's noise.
@@ -135,31 +154,62 @@ architecture the right shape?" before checking details.
 
 ---
 
-## 4. Grain — before building on claims about how things behave
+## Checkpoint timing: Grain gates recommendations
 
-Before building on how something behaves — an external system, a codebase
-component, another skill's coverage, a library's API — verify the actual
-behavior before proceeding.
+When a problem statement contains factual claims about code behavior, the
+Grain checkpoint (4) must fire before recommendations are generated. The
+order is:
+
+1. Read problem statement containing claims
+2. Verify each factual claim (Grain fires here)
+3. Based on verified facts, generate recommendations (Bozzetto applies)
+4. Present recommendations with alternatives (Self-Challenge applies)
+
+If step 2 is skipped, recommendations will be built on unverified claims
+and invalidated when the facts are eventually checked. Structural forcing:
+if the problem statement makes claims about code behavior, explicitly list
+the verified status of each claim before generating any recommendation.
+
+---
+
+## 4. Grain — verify every factual claim before building on it
+
+Before building a recommendation on any claim about how code behaves, what
+a module does, whether a feature exists, or what a component is missing,
+verify the claim empirically. This is not optional and must happen before
+generating recommendations.
 
 This applies to:
+- Codebase claims ("module X already handles Y" — read module X to verify)
+- Behavioral claims ("the timeout doesn't fire" — check the actual logs or code)
+- Feature existence ("feature Z doesn't exist" — read the code to confirm)
+- Fallback or error handling ("there's no fallback for X" — trace the code path)
 - External systems (a gateway, a library, a third-party API)
-- Codebase claims ("module X already handles Y" — read module X)
 - Coverage claims ("skill Z covers this" — read skill Z and cite the rule)
 - Any factual assertion that downstream decisions depend on
 
 Do not trust:
+- Problem descriptions without reading the code yourself
 - Documentation (may be outdated or describe different versions)
 - Prior spike reports (may have tested with different configuration)
-- Inferred behavior from config syntax or naming
-- Memory or reasoning about what code does without reading it
+- Inferred behavior from config syntax, naming, or description
+- Your own understanding or memory of what code does
 
-Instead: read the actual source, test the specific behavior, or cite the
-specific location. A two-minute verification prevents building on false
-premises.
+**Critical timing:** This checkpoint must fire BEFORE any recommendation
+based on the claim is generated. If the problem statement contains claims
+about code behavior (timeouts firing, features existing, fallbacks being
+absent), verify each claim before proceeding to analysis. Do not generate
+a recommendation list that is later invalidated by fact-checking.
 
-The verifiable checkpoint: ability to point to the specific source (code
-location, test result, file content) that confirms the behavior being
-built on.
+Instead: read the actual source code, run the actual system under actual
+conditions, or cite the specific line of code that confirms the behavior
+being built on. A five-minute verification prevents building 30 minutes
+of recommendations on false premises.
+
+The verifiable checkpoint: for each factual claim in the problem statement,
+ability to point to the specific source (code location, test result, log
+output, file content) that confirms or refutes it. Do not generate
+recommendations until all critical claims are verified.
 
 ---
 
