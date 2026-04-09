@@ -407,3 +407,38 @@ checkpoints).
 Fix: rewrote Checkpoint 4 as a gate with critical timing requirement —
 must fire before any recommendation is generated. Added checkpoint timing
 section between Checkpoints 3 and 4.
+
+---
+
+## 26. Grain verified the feature set, not the foundation
+
+When asked to improve an existing system (make experiment resume more
+granular), bildhauer checkpoints ran on the proposed plan. Grain verified
+claims about what the code does — "collect_all doesn't check for existing
+files" (true), "evaluation has no incremental save" (true). These are
+feature inventory claims. All correct.
+
+But "the existing resume works reliably" was never verified. It was
+treated as a given — the system works, it just needs to be more granular.
+A later exploration found that `run.json` writes are non-atomic (interrupt
+mid-write corrupts the file), there's no signal handling (Ctrl+C kills
+with no cleanup), and no integrity check on resume (corrupted JSON crashes
+the harness). The foundation was fragile. The plan was to add floors to a
+building without checking whether the foundation holds.
+
+The pattern: when improving existing code, the existing code's correctness
+is an implicit claim. Grain checks explicit claims in the problem
+statement but doesn't check the implicit claim that the system being
+improved is sound. The problem was framed as "add granularity" — so grain
+verified granularity-related facts. The actual problem was "add
+granularity to a system that can corrupt its own state on interrupt."
+
+This is related to observation 21 (surface reviews) — the analysis
+defaulted to "how does this work?" instead of "does this work correctly?"
+It's also a specific instance of observation 4 (overconfidence in
+verification) — treating a feature inventory as a robustness assessment.
+
+Fix: Checkpoint 4 (Grain) now explicitly requires verifying the
+robustness of the system being built on, not just the claims in the
+problem statement. When improving existing code, "this works correctly"
+is a claim that must be verified.

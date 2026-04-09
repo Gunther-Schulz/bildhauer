@@ -96,6 +96,14 @@ If the problem statement contains factual claims about code behavior,
 verify each one before proceeding to analysis. A five-minute verification
 prevents building thirty minutes of recommendations on false premises.
 
+**When improving existing code, the existing code is a claim.** "This
+system works correctly" is implicit in every improvement request — the
+framing says "make it better," which assumes "it works." Verify the
+foundation before planning additions. Check error paths, failure modes,
+and state integrity — not just the feature inventory. A plan to add
+granularity to a system that corrupts its own state on interrupt is
+building on a false premise.
+
 ---
 
 ## 5. Diagnosis — when something breaks or contradicts
