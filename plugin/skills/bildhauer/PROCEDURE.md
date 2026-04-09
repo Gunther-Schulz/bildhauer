@@ -84,25 +84,28 @@ structural alternative dismissal checks.
 
 ## 4. Grain — verify before building
 
-Before building a recommendation on any claim about how code behaves,
-what a module does, or what a component is missing — read the code.
+Before building on any factual claim — about how something behaves,
+what exists, what is missing, or what works — verify it empirically.
 This must happen before recommendations are generated, not after.
 
 Do not trust problem descriptions, documentation, prior reports, inferred
-behavior, or your own memory of what code does. Read the actual source.
-Cite the specific location that confirms or refutes each claim.
+behavior, or memory. Go to the source. Cite the specific evidence that
+confirms or refutes each claim.
 
-If the problem statement contains factual claims about code behavior,
-verify each one before proceeding to analysis. A five-minute verification
-prevents building thirty minutes of recommendations on false premises.
+If the problem statement contains factual claims, verify each one before
+proceeding to analysis. A five-minute verification prevents building
+thirty minutes of recommendations on false premises.
 
-**When improving existing code, the existing code is a claim.** "This
-system works correctly" is implicit in every improvement request — the
+**When improving something existing, the existing thing is a claim.**
+"This works correctly" is implicit in every improvement request — the
 framing says "make it better," which assumes "it works." Verify the
-foundation before planning additions. Check error paths, failure modes,
-and state integrity — not just the feature inventory. A plan to add
-granularity to a system that corrupts its own state on interrupt is
-building on a false premise.
+foundation before planning additions. A feature inventory ("what does
+it do?") is not a robustness assessment ("does it do it reliably?").
+Both must be verified. Planning improvements on a fragile foundation
+produces plans that address the wrong problem.
+
+See `references/patterns.md` for the feature inventory vs. robustness
+assessment distinction.
 
 ---
 

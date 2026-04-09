@@ -61,6 +61,30 @@ what's proposed. See observation 23.
 
 ---
 
+## Grain patterns
+
+### Feature inventory vs. robustness assessment
+
+A feature inventory answers "what does this do?" — it maps capabilities,
+data flows, and structure. A robustness assessment answers "does this
+work reliably?" — it checks failure modes, edge cases, and integrity
+under adverse conditions (interrupts, partial failures, invalid input,
+concurrent access).
+
+When the task is to improve something existing, both are needed. The
+feature inventory tells you what to build on. The robustness assessment
+tells you whether it can bear the weight. An exploration that returns
+a feature inventory looks thorough — it answered many questions — but
+it answered the wrong question if the foundation is fragile.
+
+The distinction applies beyond code: a process description ("here's how
+onboarding works") is not a process assessment ("does onboarding
+actually work when two people start on the same day?"). A design summary
+("the schema has these fields") is not a design evaluation ("can any
+upstream path actually populate this field?").
+
+---
+
 ## Self-challenge patterns
 
 ### Framing vs. choice
