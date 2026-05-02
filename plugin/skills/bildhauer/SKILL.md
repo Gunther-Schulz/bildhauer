@@ -1,7 +1,7 @@
 ---
 name: bildhauer
-description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit adherence", or asks to evaluate whether the current approach is right before continuing. Also use when starting significant work — implementation, design, analysis, or investigation — to establish the coarse-to-fine mindset. Applies to code, discussions, proposals, and analytical conclusions alike.
-version: 0.5.0
+description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit behavior change", or asks to evaluate whether the current approach is right before continuing. Also use when starting significant work — implementation, design, analysis, or investigation — to establish the coarse-to-fine mindset. Applies to code, discussions, proposals, and analytical conclusions alike.
+version: 0.6.0
 license: MIT
 ---
 
@@ -15,11 +15,11 @@ Read `PROCEDURE.md` from this skill's directory. Follow it.
 
 This framework improves through use, not through theory.
 
-**When the user asks to audit adherence**, compare actual behavior against
+**When the user asks to audit behavior change**, compare actual behavior against
 PROCEDURE.md checkpoints. For each checkpoint, identify specific moments
 in the conversation where it should have fired. For each moment, assess:
-did it fire? Did it produce a different outcome than the default, or was
-it performative? Rate impact honestly — the question is whether
+did it shift behavior, or was it performative? Did it produce a different
+outcome than the default? Rate impact honestly — the question is whether
 checkpoints changed behavior, not whether they were performed.
 
 **When a gap is noticed during use** — a checkpoint that should have
@@ -42,7 +42,7 @@ NOT loaded during skill use — read only when updating the skill itself:
 | `PROCEDURE.md` | Actionable checkpoints — applies to code, design, analysis, and discussion | `VISION.md` | `references/patterns.md` (specialized patterns referenced from checkpoints) |
 | `references/patterns.md` | Specialized guidance for specific work types (data flow, error handling, verification states) | `PROCEDURE.md` + `OBSERVATIONS.md` | Nothing — it's a leaf |
 | `OBSERVATIONS.md` | Documented patterns (failures and techniques) grounded in real incidents | Real usage | Nothing — it's a leaf |
-| `ROADMAP.md` | Concrete work items for improving the framework, grounded in observed failures | `OBSERVATIONS.md` + adherence audits | Nothing — it's a leaf |
+| `ROADMAP.md` | Concrete work items for improving the framework, grounded in observed failures | `OBSERVATIONS.md` + behavior-change audits | Nothing — it's a leaf |
 
 When proposing updates:
 - Procedural checkpoint change → `PROCEDURE.md`
@@ -58,5 +58,5 @@ longer says what it used to is a stale procedure.
 coherence — incremental additions create seams. Rewrite affected sections
 to flow naturally before committing.
 
-Then run `~/dev/Gunther-Schulz/bildhauer/update-plugin.sh` to reinstall,
+Then run `update-plugin.sh` from the bildhauer repo root to reinstall,
 and remind the user to run `/reload-plugins`.
