@@ -6,5 +6,6 @@
     "name": "Gunther Schulz"
   },
   "repository": "https://github.com/Gunther-Schulz/bildhauer",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": ["refinement", "coarse-to-fine", "decision-discipline", "design-review", "verification", "checkpoints"]
 }
