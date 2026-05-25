@@ -1,6 +1,6 @@
 ---
 name: bildhauer
-description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit behavior change", or asks to evaluate whether the current approach is right before continuing. Also use when starting significant work — implementation, design, analysis, or investigation — to establish the coarse-to-fine mindset. Applies to code, discussions, proposals, and analytical conclusions alike.
+description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit behavior change", or asks to evaluate whether the current approach is right before continuing. Use proactively at the start of significant work — design discussions, multi-step implementations, analyses with downstream commitments, architectural decisions, or investigations of unclear systems — to establish the coarse-to-fine mindset before diving in. Applies to code, discussions, proposals, and analytical conclusions alike.
 version: 0.6.0
 license: MIT
 ---
