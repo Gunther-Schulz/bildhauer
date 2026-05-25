@@ -1,7 +1,7 @@
 ---
 name: bildhauer
 description: This skill should be used when the user says "bildhauer", "step back", "refine", "check the vision", "audit behavior change", or asks to evaluate whether the current approach is right before continuing. Use proactively at decision moments — before drafting rule-corpus content (specs, memories, CLAUDE.md, skill files), before building on the state of a loaded artifact (verify it matches source-of-truth), before presenting options (test: would each be defended on merit?), before declaring work complete or skipping a verification step. Threshold is the decision moment, not the scale of the work; applies to single-paragraph edits and multi-step implementations alike, across code, discussions, proposals, and analytical conclusions.
-version: 0.6.0
+version: 0.7.0
 license: MIT
 ---
 

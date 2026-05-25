@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "bildhauer",
-      "description": "Coarse-to-fine refinement framework. Loads the Bildhauer vision and observations to guide how work is approached — from rough to detailed, checking coherence at every stage.",
+      "description": "Coarse-to-fine refinement framework for AI-assisted development. Loads vision and observations as a thinking lens, not a rigid protocol.",
       "source": "./plugin"
     }
   ]
