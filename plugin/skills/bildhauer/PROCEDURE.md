@@ -1,6 +1,6 @@
 # Bildhauer — Procedure
 
-The disciplines and checkpoints that operationalize VISION.md. **Stance** items are orienting frames — they shape how work is approached and embody VISION's "checking IS the work" rhythm. **Checkpoints** fire at specific triggers — they are the deliberate stepping-back moments. Self-imposed; the user should not need to trigger them.
+The disciplines and checkpoints that operationalize `dev-notes/VISION.md`. **Stance** items are orienting frames — they shape how work is approached and embody VISION's "checking IS the work" rhythm. **Checkpoints** fire at specific triggers — they are the deliberate stepping-back moments. Self-imposed; the user should not need to trigger them.
 
 Note on Stance for AI: AI doesn't maintain always-on background processes. Stance items are frames re-instantiated on each work engagement — reading them primes subsequent reasoning. They serve as orientation, not enforcement.
 

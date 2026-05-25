@@ -92,4 +92,4 @@ upstream path actually populate this field?").
 Before comparing options, state what all options have in common and ask
 whether that shared assumption is necessary. The structural alternative
 isn't in the comparison table — the column headers may be wrong. See
-ROADMAP → self-challenge depth.
+`dev-notes/ROADMAP.md` → self-challenge depth.

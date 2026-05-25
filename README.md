@@ -31,7 +31,6 @@ Triggers on: "bildhauer", "step back", "refine", "check the vision",
 |------|------|--------|
 | `SKILL.md` | Entry point, trigger conditions, maintenance guide | At invocation |
 | `PROCEDURE.md` | The five checkpoints (self-contained) | At invocation |
-| `OBSERVATIONS.md` | Failure patterns from real incidents | Only when improving bildhauer |
-| `VISION.md` | Philosophical foundation | Only when improving bildhauer |
-| `STRATEGY.md` | Connects observations to principle | Only when improving bildhauer |
-| `ROADMAP.md` | Concrete improvement work items | Only when improving bildhauer |
+| `dev-notes/OBSERVATIONS.md` | Failure patterns from real incidents | Only when improving bildhauer |
+| `dev-notes/VISION.md` | Philosophical foundation | Only when improving bildhauer |
+| `dev-notes/ROADMAP.md` | Concrete improvement work items | Only when improving bildhauer |
