@@ -1,6 +1,6 @@
 {
   "name": "bildhauer",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Coarse-to-fine refinement framework for AI-assisted development. Loads vision and observations as a thinking lens, not a rigid protocol.",
   "author": {
     "name": "Gunther Schulz"
