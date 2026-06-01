@@ -442,3 +442,47 @@ Fix: Checkpoint 4 (Grain) now explicitly requires verifying the
 robustness of the system being built on, not just the claims in the
 problem statement. When improving existing code, "this works correctly"
 is a claim that must be verified.
+
+---
+
+## 27. Design surface presented without a pre-presentation gap-pass
+
+When the AI presents a design surface — genuine choices for the operator to
+react to — it presents the gaps and choices it can *see*. No checkpoint
+adversarially interrogates the surface ("what's missing, what does any
+delegation here depend on, how do the presented choices couple") *before*
+presenting. The step-back (Checkpoint 6) fires "after a coherent unit of
+work," but a design surface isn't treated as a unit, so it doesn't fire there.
+Latent gaps then surface only when the operator probes — if they happen to —
+or later at review time, after drafting, at higher cost.
+
+In a real incident (rule-corpus de-pollution session): three findings — an
+*enforcement gap* (a mechanism was delegated to an instance "slot" that was
+never declared in the framework's closed slot-set), a *coupling* between two
+presented choices (one choice's wording silently re-introduced a
+single-location assumption another choice was removing), and a guarantee-framing
+refinement — all surfaced only because the operator probed ("how do we ensure
+instances actually do this?", "any latent gaps?"). The enforcement gap would
+not have been caught by the downstream review either: the AI never wrote a
+dangling reference for a reviewer to catch — it was an absence nobody was
+looking for. The coupling and refinement would have been caught later by review
+subagents, but at review time (post-draft), forcing a fix-and-re-review cycle
+rather than a design-time catch.
+
+This is observation 14 (agreement without challenge) and observation 17
+(structured output suppresses step-backs) applied to the *present-a-design*
+moment. The design surface is structured (lead-with-recommendation, enumerated
+choices) and reads thorough, which suppresses the "what did I not consider?"
+step-back — the same suppression as obs 17, but *before* presenting, which is
+the cheapest moment to catch gaps. Closest cousin is observation 15
+(design-to-build transition gate), which formalizes a similar pre-build pass.
+
+Proposed fix (PROCEDURE.md): treat a design surface as a "coherent unit" that
+triggers the Checkpoint-6 step-back *before presentation*, with the gap-pass
+explicitly including: (a) **delegation homes** — for any responsibility the
+design hands off (to another component, a slot, a downstream consumer), name
+where it lands and confirm that home exists / can bear it; and (b) **coupling
+among the presented choices** — does one choice's resolution undermine
+another's. The general principle is bildhauer's; a domain-specific forcing
+function (e.g. "delegation requires a *declared* slot") belongs in the
+consuming corpus's own process doc, not here.

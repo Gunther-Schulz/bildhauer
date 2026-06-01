@@ -117,7 +117,7 @@ See `references/patterns.md` for the feature inventory vs. robustness assessment
 
 VISION: "the sculptor steps back and looks. Not just at what they're working on — at the whole piece... This checking is not separate from the work — it is the work."
 
-**Trigger**: after finishing a coherent unit of work — before presenting.
+**Trigger**: after finishing a coherent unit of work — before presenting. A **design surface** (a set of choices or a conclusion presented for decision) is such a unit: the step-back fires before presenting it, not only after building something.
 
 **Action**: produce a verification block. This is not optional — a missing verification block means the step-back did not happen.
 
@@ -127,6 +127,8 @@ The verification block contains:
 3. **What the output would look like if the framing is wrong.**
 
 For each item, check. If checking reveals a problem, fix before presenting. Surface problems found and fixed, or found and not fixable. Do not surface "I checked and everything is fine" — that's noise.
+
+For a **design surface** specifically, the step-back must also reach **delegation homes** (for any responsibility the design hands off — to another component, a downstream consumer, a slot — does the receiving home exist and can it bear the load?) and **coupling** (does one presented choice's resolution undermine another's?). A recommendation-led surface reads thorough, which suppresses the "what's missing?" check — so run these explicitly, not by feel.
 
 When the work depended on claims about code behavior, include those claims in the verification. A recommendation built on false claims is not sound.
 
